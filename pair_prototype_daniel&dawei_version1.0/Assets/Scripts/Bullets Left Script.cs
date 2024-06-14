@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BulletManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class BulletManager : MonoBehaviour
     private int currentBullets; 
     public TextMeshProUGUI bulletText;
     private Gun gunScript;
+    public SendToGoogle googleForm;
 
 
     void Start()
@@ -21,6 +23,12 @@ public class BulletManager : MonoBehaviour
     void Update() {
         currentBullets = gunScript.bulletsLeft;
         UpdateBulletText();
+        if (currentBullets == 0) {
+            // Call the function to restart the game
+            //Show Game Over Screen
+            googleForm.DeathBullet();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
     void UpdateBulletText()
     {
