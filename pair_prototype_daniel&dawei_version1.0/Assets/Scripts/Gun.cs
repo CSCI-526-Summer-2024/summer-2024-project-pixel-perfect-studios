@@ -7,9 +7,24 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab; // Assign the Bullet prefab in the Inspector
     public Transform shootPoint; // The point from where the bullet will be shot
     public int bulletsLeft = 20;
+
+    public LineRenderer lineRenderer; // NEW
+    public float timeStep = 0.1f; // NEW
+    public float speed = 30f; // New
+
+    void Start() // NEW
+    {
+        if (lineRenderer == null)
+        {
+            lineRenderer = GetComponent<LineRenderer>();
+        }
+    }
     
     void Update()
     {
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - shootPoint.position; // NEW
+        UpdateTrajectory(shootPoint.position, direction); // NEW
+        
         if (Input.GetMouseButtonDown(0) && (bulletsLeft > 0)) // Detect mouse click
         { 
             Shoot();
@@ -36,6 +51,46 @@ public class Gun : MonoBehaviour
         transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
         shootPoint.position = new Vector3(newPosition.x, newPosition.y, shootPoint.position.z);
     }
+
+    public void UpdateTrajectory(Vector2 startPosition, Vector2 direction) // NEW
+    {
+        Vector2 currentPosition = startPosition;
+        Vector2 currentVelocity = direction * speed;
+
+        
+        RaycastHit2D hit = Physics2D.Raycast(currentPosition, currentVelocity, currentVelocity.magnitude * timeStep);
+        
+
+        float distance = 100f;
+        if (hit.collider != null)
+        {
+             distance = hit.distance;
+            // Debug.Log(distance);
+        }
+        
+        int maxPoints = Mathf.CeilToInt(distance / 0.1f);
+        Debug.DrawRay(currentPosition, direction.normalized * maxPoints, Color.red, 1f);
+
+        // Debug.Log(maxPoints);
+
+        lineRenderer.enabled = true;
+        lineRenderer.positionCount = maxPoints;
+
+        Vector2 smallVelocity = direction.normalized * 0.1f;
+
+        for (int i = 0; i < maxPoints; i++)
+        {
+            lineRenderer.SetPosition(i, currentPosition);
+            currentPosition += smallVelocity * timeStep;
+        }
+
+        if (hit.collider != null)
+        {
+            lineRenderer.SetPosition(maxPoints - 1, hit.point);
+        }
+        else
+        {
+            lineRenderer.SetPosition(maxPoints - 1, currentPosition);
+        }
+    }
 }
-
-
