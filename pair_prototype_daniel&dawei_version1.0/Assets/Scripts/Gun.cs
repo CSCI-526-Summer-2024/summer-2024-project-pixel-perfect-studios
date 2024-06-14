@@ -10,7 +10,6 @@ public class Gun : MonoBehaviour
 
     public LineRenderer lineRenderer; // NEW
     public float timeStep = 0.1f; // NEW
-    public float speed = 30f; // New
 
     void Start() // NEW
     {
@@ -55,42 +54,41 @@ public class Gun : MonoBehaviour
     public void UpdateTrajectory(Vector2 startPosition, Vector2 direction) // NEW
     {
         Vector2 currentPosition = startPosition;
-        Vector2 currentVelocity = direction * speed;
-
         
-        RaycastHit2D hit = Physics2D.Raycast(currentPosition, currentVelocity, currentVelocity.magnitude * timeStep);
+        RaycastHit2D hit = Physics2D.Raycast(currentPosition, direction);
         
 
-        float distance = 100f;
+        float distance = 50f;
         if (hit.collider != null)
         {
-             distance = hit.distance;
-            // Debug.Log(distance);
-        }
-        
-        int maxPoints = Mathf.CeilToInt(distance / 0.1f);
-        Debug.DrawRay(currentPosition, direction.normalized * maxPoints, Color.red, 1f);
-
-        // Debug.Log(maxPoints);
-
-        lineRenderer.enabled = true;
-        lineRenderer.positionCount = maxPoints;
-
-        Vector2 smallVelocity = direction.normalized * 0.1f;
-
-        for (int i = 0; i < maxPoints; i++)
-        {
-            lineRenderer.SetPosition(i, currentPosition);
-            currentPosition += smallVelocity * timeStep;
+            distance = hit.distance;
+            //Debug.Log(distance);
         }
 
-        if (hit.collider != null)
+        if (distance > 0)
         {
-            lineRenderer.SetPosition(maxPoints - 1, hit.point);
-        }
-        else
-        {
-            lineRenderer.SetPosition(maxPoints - 1, currentPosition);
+            int maxPoints = Mathf.CeilToInt(distance / 0.2f);
+            // Debug.DrawRay(currentPosition, direction.normalized * maxPoints, Color.red, 1f);
+            // Debug.Log(maxPoints);
+            lineRenderer.enabled = true;
+            lineRenderer.positionCount = maxPoints;
+
+            Vector2 smallVelocity = direction.normalized * 0.2f;
+
+            for (int i = 0; i < maxPoints; i++)
+            {
+                lineRenderer.SetPosition(i, currentPosition);
+                currentPosition += smallVelocity;
+            }
+
+            // if (hit.collider != null)
+            // {
+            //     lineRenderer.SetPosition(maxPoints - 1, hit.point);
+            // }
+            // else
+            // {
+            //     lineRenderer.SetPosition(maxPoints - 1, currentPosition);
+            // }
         }
     }
 }
