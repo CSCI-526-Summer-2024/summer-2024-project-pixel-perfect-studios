@@ -9905,7 +9905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0deb49c8c2fe42f29e8b81ea1875c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPoint: {fileID: 1368535070}
 --- !u!1 &1748612404
 GameObject:
   m_ObjectHideFlags: 0

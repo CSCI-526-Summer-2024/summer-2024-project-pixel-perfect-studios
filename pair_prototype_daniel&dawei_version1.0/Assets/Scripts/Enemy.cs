@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
+    void Start()
+    {
 
+    }
+
+    // Update is called once per frame
+    //void KilledEnemy(Collision2D collision)
     public void KilledEnemy()
     {
-        //Debug.Log("Killed one enemy");
+        Debug.Log("Killed one enemy");
 
         Destroy(gameObject);
     }
@@ -16,7 +22,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.name == "Character")
         {
-            //Debug.Log("Hit Enemy!!");
+            Debug.Log("Hit Enemy!!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
