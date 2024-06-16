@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.2509804, g: 1, b: 0.5019608, a: 1}
+  m_Color: {r: 1, g: 0.84313726, b: 0.1882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5337647202996720899}
-  - component: {fileID: 6275946545087383701}
+  - component: {fileID: 5946199155041856226}
   m_Layer: 0
   m_Name: Arm
   m_TagString: Untagged
@@ -117,7 +117,7 @@ Transform:
   - {fileID: 7962121997376068671}
   m_Father: {fileID: 3248971143505881232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6275946545087383701
+--- !u!114 &5946199155041856226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,9 +126,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1757003346756683353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0deb49c8c2fe42f29e8b81ea1875c20, type: 3}
+  m_Script: {fileID: 11500000, guid: 40b046d147d054a13b13ec923d933333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveSpeed: 1
+  waveAngle: 45
 --- !u!1 &6240388020363433030
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +248,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7962121997376068671}
   - component: {fileID: 5338419015949149558}
-  - component: {fileID: 333439831654196237}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -312,7 +313,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.2509804, g: 1, b: 0.5019608, a: 1}
+  m_Color: {r: 1, g: 0.84313726, b: 0.1882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -322,21 +323,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &333439831654196237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8253102011538782674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb5f65d9d83d74317b484a5d4ebe4078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4316554446958764829, guid: 4388ed79ec4624dc083a9f913a6bb541, type: 3}
-  shootPoint: {fileID: 6894681609657701648}
-  bulletsLeft: 20
 --- !u!1 &8915363178991328455
 GameObject:
   m_ObjectHideFlags: 0
