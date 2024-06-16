@@ -7,8 +7,9 @@ TagManager:
   - Enemy
   - ButtonEffective
   - Gate
+  - BluePortal
+  - OrangePortal
   - BlueEnemy
-  - OrangeEnemy
   layers:
   - Default
   - TransparentFX
