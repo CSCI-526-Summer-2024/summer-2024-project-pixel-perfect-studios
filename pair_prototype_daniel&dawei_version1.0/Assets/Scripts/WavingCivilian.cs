@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class WavingCivilian : MonoBehaviour
 {
-    public float waveSpeed = 1f;
+    public float waveSpeed;
+    public float minWaveSpeed = 0.5f;
+    public float maxWaveSpeed = 2f;
     public float waveAngle = 60f;
-    private float waveTime = 0f;
+    private float waveTime;
 
     // Start is called before the first frame update
     void Awake()
     {
-        waveTime = 0f;
+        waveTime = Random.Range(0f, Mathf.PI * 2f);
+        waveSpeed = Random.Range(minWaveSpeed, maxWaveSpeed);
     }
 
     // Update is called once per frame
