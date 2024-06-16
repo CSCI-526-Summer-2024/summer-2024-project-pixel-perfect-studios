@@ -14,13 +14,13 @@ public class Bullet : MonoBehaviour
     private Gun gun;
 
     public int ricochetInt = 10;
-    public GameObject target;
+    public GameObject character;
 
     void Awake()
     {
         // Eliminate the effect of gravity on the bullet
         rb.gravityScale = 0;
-        target = GameObject.Find("Character");
+        character = GameObject.Find("Character");
     }
 
     public void Shoot(Vector2 direction, Gun gun)
@@ -32,8 +32,19 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != "Enemy")
-        {
+        if (collision.gameObject.tag == "Enemy") {
+            collision.gameObject.GetComponent<Enemy>().KilledEnemy();
+            rb.velocity = direction * speed;
+        }
+        else if (collision.gameObject.tag == "BluePortal" || collision.gameObject.tag == "OrangePortal") {
+            Debug.Log("Hit a portal");
+            // If collision with Portal tag object, then call the gameObject's portalJump function
+            // Destroy the Bullet
+            Destroy(gameObject);
+            collision.gameObject.GetComponent<Portal>().PortalJump();
+
+        } 
+        else {
             hitCount++;
             if(collision.gameObject.tag == "ButtonEffective"){
                 collision.gameObject.GetComponent<Button>().hitButton();
@@ -43,23 +54,21 @@ public class Bullet : MonoBehaviour
             direction = Vector2.Reflect(direction, normal);
             rb.velocity = direction * speed;
         }
-        else
-        {
-            collision.gameObject.GetComponent<Enemy>().KilledEnemy();
-            rb.velocity = direction * speed;
-        }
+
         if (hitCount == ricochetInt)
         {
             StartCoroutine(DestroyBulletAfterDelay(0.02f));
         }
     }
+    
+    // This function also teleports the character
     private IEnumerator DestroyBulletAfterDelay(float delay)
     {  
         // Wait for the specified delay
         yield return new WaitForSeconds(delay);
 
         // Log the position right before destruction
-        target.transform.position = transform.position;
+        character.transform.position = transform.position;
 
         // Destroy the bullet
         Destroy(gameObject);
