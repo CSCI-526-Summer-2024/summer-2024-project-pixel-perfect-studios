@@ -17,7 +17,6 @@ public class SendToGoogle : MonoBehaviour
     {
         // Assign ID to identify playtest
         _sessionID = DateTime.Now.Ticks;
-
     }
 
     public void DeathEnemy()
