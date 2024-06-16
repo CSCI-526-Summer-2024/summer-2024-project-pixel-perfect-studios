@@ -185,4 +185,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ed879b1cb9d42fe94602ee48016380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeDespawn: 6
+  delayBeforeDespawn: 8
