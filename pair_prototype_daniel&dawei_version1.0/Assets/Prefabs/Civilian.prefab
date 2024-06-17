@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b046d147d054a13b13ec923d933333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveSpeed: 1
+  waveSpeed: 1.8
   waveAngle: 45
 --- !u!1 &6240388020363433030
 GameObject:

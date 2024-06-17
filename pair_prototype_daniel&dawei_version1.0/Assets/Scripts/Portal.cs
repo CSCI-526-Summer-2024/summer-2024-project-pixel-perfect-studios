@@ -35,8 +35,9 @@ public class Portal : MonoBehaviour {
             }
 
             nearestPortalPosition = nearestPortal.transform.position;
-            // Destroy(nearestPortal);
+            Destroy(nearestPortal);
             character.transform.position = nearestPortalPosition;
+            Destroy(gameObject);
         }
         if (gameObject.tag == "OrangePortal") {
             GameObject[] portals = GameObject.FindGameObjectsWithTag("BluePortal");
@@ -52,8 +53,9 @@ public class Portal : MonoBehaviour {
                 }
             }
             nearestPortalPosition = nearestPortal.transform.position;
-            // Destroy(nearestPortal);
+            Destroy(nearestPortal);
             character.transform.position = nearestPortalPosition;
+            Destroy(gameObject);
         }
     }
 }
