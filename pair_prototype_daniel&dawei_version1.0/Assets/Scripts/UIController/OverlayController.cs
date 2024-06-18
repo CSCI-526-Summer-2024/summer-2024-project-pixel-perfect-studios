@@ -33,5 +33,8 @@ public class OverlayController : MonoBehaviour
                 InGameMenuDialog.SetActive(false);
             }
         }
+        if(false){   // Todo: a boolean variable determine whether character die or not
+            InGameMenuDialog.SetActive(true);
+        }
     }
 }
