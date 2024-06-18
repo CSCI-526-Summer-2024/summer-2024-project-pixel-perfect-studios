@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab; // Assign the Bullet prefab in the Inspector
     public Transform shootPoint; // The point from where the bullet will be shot
     public int bulletsLeft = 20;
+    public GameObject bullet = null;
 
     public LineRenderer lineRenderer; // NEW
     public float timeStep = 0.1f; // NEW
@@ -24,7 +25,7 @@ public class Gun : MonoBehaviour
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - shootPoint.position; // NEW
         UpdateTrajectory(shootPoint.position, direction); // NEW
         
-        if (Input.GetMouseButtonDown(0) && (bulletsLeft > 0)) // Detect mouse click
+        if (Input.GetMouseButtonDown(0) && (bulletsLeft > 0) && (bullet == null)) // Detect mouse click
         { 
             Shoot();
             bulletsLeft--;
@@ -34,7 +35,7 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         // Create a bullet instance at the shootPoint's position and rotation
-        GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
         
         // Calculate the direction to shoot the bullet
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - shootPoint.position;

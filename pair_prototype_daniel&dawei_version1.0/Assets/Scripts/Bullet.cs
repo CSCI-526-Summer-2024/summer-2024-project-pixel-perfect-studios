@@ -77,6 +77,7 @@ public class Bullet : MonoBehaviour
 
         // Destroy the bullet
         Destroy(gameObject);
+        gun.bullet = null;
     }
 }
 

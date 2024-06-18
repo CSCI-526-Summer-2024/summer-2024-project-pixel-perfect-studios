@@ -41,7 +41,7 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000480167746723033}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -53,7 +53,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 9cbb9d4f1c71540d7bc181d653503875, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,8 +83,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.5294113
+        time: 0.6239641
+        value: 0.29893672
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -96,9 +96,9 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 0, b: 0.042412758, a: 1}
+      key1: {r: 1, g: 0, b: 0.042412758, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -114,13 +114,13 @@ LineRenderer:
       ctime7: 0
       atime0: 0
       atime1: 65535
-      atime2: 0
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
+      m_Mode: 1
       m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
@@ -428,6 +428,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4316554446958764829, guid: 4388ed79ec4624dc083a9f913a6bb541, type: 3}
   shootPoint: {fileID: 6744420453497024288}
   bulletsLeft: 20
+  bullet: {fileID: 0}
   lineRenderer: {fileID: 2000161172141065032}
   timeStep: 0.1
 --- !u!1 &7662280660087975586

@@ -129,7 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b046d147d054a13b13ec923d933333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveSpeed: 1.8
+  waveSpeed: 4
+  minWaveSpeed: 0.5
+  maxWaveSpeed: 2
   waveAngle: 45
 --- !u!1 &6240388020363433030
 GameObject:
@@ -178,10 +180,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.7
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: ac2d5a6da07ff458f9bdc68bd015afdc, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
