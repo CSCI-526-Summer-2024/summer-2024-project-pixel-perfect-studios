@@ -12,6 +12,10 @@ public class Gun : MonoBehaviour
     public LineRenderer lineRenderer; // NEW
     public float timeStep = 0.1f; // NEW
 
+    public LayerMask raycastMask;
+
+    public Transform armPosition; // The point of arm
+
     void Start() // NEW
     {
         if (lineRenderer == null)
@@ -22,23 +26,27 @@ public class Gun : MonoBehaviour
     
     void Update()
     {
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - shootPoint.position; // NEW
-        UpdateTrajectory(shootPoint.position, direction); // NEW
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - armPosition.position; // NEW
+        UpdateTrajectory(armPosition.position, direction); // NEW
+        // if (Input.GetKey(KeyCode.T)) // Check if the "T" key is pressed
+        // {
+            
+        // }
         
         if (Input.GetMouseButtonDown(0) && (bulletsLeft > 0) && (bullet == null)) // Detect mouse click
         { 
-            Shoot();
+            Shoot(direction);
             bulletsLeft--;
         }
     }
 
-    public void Shoot()
+    public void Shoot(Vector2 direction)
     {
         // Create a bullet instance at the shootPoint's position and rotation
         bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
         
         // Calculate the direction to shoot the bullet
-        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - shootPoint.position;
+        //Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - shootPoint.position;
 
         // Get the Bullet script component and call Shoot method
         Bullet bulletScript = bullet.GetComponent<Bullet>();
@@ -56,10 +64,10 @@ public class Gun : MonoBehaviour
     {
         Vector2 currentPosition = startPosition;
         
-        RaycastHit2D hit = Physics2D.Raycast(currentPosition, direction);
+        RaycastHit2D hit = Physics2D.Raycast(currentPosition, direction, Mathf.Infinity, raycastMask);
         
 
-        float distance = 50f;
+        float distance = 1000f;
         if (hit.collider != null)
         {
             distance = hit.distance;
@@ -69,7 +77,7 @@ public class Gun : MonoBehaviour
         if (distance > 0)
         {
             int maxPoints = Mathf.CeilToInt(distance / 0.2f);
-            // Debug.DrawRay(currentPosition, direction.normalized * maxPoints, Color.red, 1f);
+            //Debug.DrawRay(currentPosition, direction.normalized * maxPoints, Color.red, 1f);
             // Debug.Log(maxPoints);
             lineRenderer.enabled = true;
             lineRenderer.positionCount = maxPoints;
@@ -90,6 +98,13 @@ public class Gun : MonoBehaviour
             // {
             //     lineRenderer.SetPosition(maxPoints - 1, currentPosition);
             // }
+        }
+    }
+    public void ClearTrajectory()
+    {
+        if (lineRenderer != null)
+        {
+            lineRenderer.positionCount = 0; // Clear the LineRenderer by setting positionCount to 0
         }
     }
 }

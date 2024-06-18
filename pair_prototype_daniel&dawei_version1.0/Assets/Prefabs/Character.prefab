@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3927921559941309707}
   - component: {fileID: 2000161172141065032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LineRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8409921041224179132}
   - component: {fileID: 4008514734301255636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 1947500574077784472}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2636261, y: -0.8200226, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 6478664680324638058}
   - component: {fileID: 2071867091100276113}
   - component: {fileID: 9049006767070890139}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 7633987671933780240}
   - component: {fileID: 8833374931880498744}
   - component: {fileID: 7348531378167082100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,8 +354,8 @@ Transform:
   m_GameObject: {fileID: 4881490230850454282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9, y: -0.5, z: 0}
-  m_LocalScale: {x: 2, y: 0.4, z: 1}
+  m_LocalPosition: {x: 1.3, y: 0, z: 0}
+  m_LocalScale: {x: 2.6, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6744420453497024288}
@@ -431,6 +431,10 @@ MonoBehaviour:
   bullet: {fileID: 0}
   lineRenderer: {fileID: 2000161172141065032}
   timeStep: 0.1
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 55
+  armPosition: {fileID: 5632477172499768963}
 --- !u!1 &7662280660087975586
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5632477172499768963}
   - component: {fileID: 3843131285496112444}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,8 +461,8 @@ Transform:
   m_GameObject: {fileID: 7662280660087975586}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 0.31, z: 0}
-  m_LocalScale: {x: 1.3875, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7633987671933780240}
@@ -476,7 +480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0deb49c8c2fe42f29e8b81ea1875c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPoint: {fileID: 6744420453497024288}
 --- !u!1 &8770507536434274618
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6744420453497024288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +505,7 @@ Transform:
   m_GameObject: {fileID: 8770507536434274618}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
