@@ -21,7 +21,8 @@ public class WinningEnemy : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-        winText.text = "You win!";
+        //winText.text = "You win!";
+        OverlayController.instance.characterStatus = OverlayController.playerStatus.WIN;
     }
 
 }

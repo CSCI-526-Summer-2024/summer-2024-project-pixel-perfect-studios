@@ -165,4 +165,4 @@ MonoBehaviour:
   speed: 70
   ricochetInt: 4
   character: {fileID: 0}
-  delayBeforeDespawn: 3.5
+  delayBeforeDespawn: 3
