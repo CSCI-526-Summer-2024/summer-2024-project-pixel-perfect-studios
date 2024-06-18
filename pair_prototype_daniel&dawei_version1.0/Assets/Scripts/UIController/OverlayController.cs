@@ -50,9 +50,11 @@ public class OverlayController : MonoBehaviour
 
 
     public void backToMainMenu(){
+        ResumeGame();
         SceneManager.LoadScene("Level Select");
     }
     public void resetLevel(){
+        ResumeGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private void Update(){
