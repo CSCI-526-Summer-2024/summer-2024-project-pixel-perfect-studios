@@ -27,7 +27,8 @@ public class BulletManager : MonoBehaviour
             // Call the function to restart the game
             // Show Game Over Screen
             //googleForm.DeathBullet();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE;
         }
     }
     void UpdateBulletText()
