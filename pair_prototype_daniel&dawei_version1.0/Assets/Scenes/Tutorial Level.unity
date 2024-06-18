@@ -1548,10 +1548,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
-  player: {fileID: 2042958883}
-  leftRegionX: 10
-  rightRegionX: 135
-  smoothSpeed: 50
+  player: {fileID: 0}
+  leftRegionX: 0
+  rightRegionX: 0
+  smoothSpeed: 0
 --- !u!1 &572917523
 GameObject:
   m_ObjectHideFlags: 0
@@ -4960,11 +4960,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
---- !u!4 &2042958883 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6478664680324638058, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
-  m_PrefabInstance: {fileID: 257285086}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
