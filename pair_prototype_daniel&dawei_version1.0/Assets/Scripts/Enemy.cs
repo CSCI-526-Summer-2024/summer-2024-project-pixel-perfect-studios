@@ -17,8 +17,9 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.name == "Character")
         {
             Debug.Log("Hit Enemy!!");
-            googleForm.DeathEnemy();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //googleForm.DeathEnemy();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE;
         }
     }
 }

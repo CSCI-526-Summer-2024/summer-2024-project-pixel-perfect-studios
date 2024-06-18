@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,24 @@ public class OverlayController : MonoBehaviour
         GAMEOVER,
         INGAMEMENU
     }
+    public enum playerStatus
+    {
+        PLAY,
+        WIN,
+        LOSE
+    }
     overlayStatus gameStatus = overlayStatus.GAMING;
+    public playerStatus characterStatus = playerStatus.PLAY;
+    public static OverlayController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     public void backToMainMenu(){
         SceneManager.LoadScene("Level Select");
     }
@@ -33,8 +51,8 @@ public class OverlayController : MonoBehaviour
                 InGameMenuDialog.SetActive(false);
             }
         }
-        if(false){   // Todo: a boolean variable determine whether character die or not
-            InGameMenuDialog.SetActive(true);
+        if(characterStatus == playerStatus.LOSE){   // Todo: a boolean variable determine whether character die or not
+            GameOverDialog.SetActive(true);
         }
     }
 }
