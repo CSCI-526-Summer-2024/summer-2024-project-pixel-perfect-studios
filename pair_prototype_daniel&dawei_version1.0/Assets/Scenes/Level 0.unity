@@ -2096,7 +2096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8643028330194766571, guid: 8cee80ec579774978899bed1125d86ff, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8955892406461846025, guid: 8cee80ec579774978899bed1125d86ff, type: 3}
       propertyPath: m_Pivot.x
@@ -2749,7 +2749,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxBullets: 15
   bulletText: {fileID: 1433454830}
-  googleForm: {fileID: 0}
 --- !u!1001 &2039187542
 PrefabInstance:
   m_ObjectHideFlags: 0
