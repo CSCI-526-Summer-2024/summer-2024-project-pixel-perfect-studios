@@ -677,8 +677,8 @@ Transform:
   m_GameObject: {fileID: 266015625}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 127, y: 60.600002, z: 0}
-  m_LocalScale: {x: 119.54572, y: 1, z: 1}
+  m_LocalPosition: {x: 122.69, y: 60.600002, z: 0}
+  m_LocalScale: {x: 102.80134, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 278965873}
@@ -1368,8 +1368,8 @@ Transform:
   m_GameObject: {fileID: 438173484}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 126.7, y: 97.9, z: 0}
-  m_LocalScale: {x: 119.063675, y: 1, z: 1}
+  m_LocalPosition: {x: 122.7112, y: 97.9, z: 0}
+  m_LocalScale: {x: 102.78552, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 278965873}
@@ -1508,11 +1508,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1982439708477280367, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 113.7
+      value: 122.63
       objectReference: {fileID: 0}
     - target: {fileID: 1982439708477280367, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 81.7
+      value: 89.1
       objectReference: {fileID: 0}
     - target: {fileID: 1982439708477280367, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1911,7 +1911,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 34
+  orthographic size: 31.968826
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1936,7 +1936,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 119, y: 83, z: -20.032078}
+  m_LocalPosition: {x: 122.9, y: 83, z: -20.032078}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3526,8 +3526,8 @@ Transform:
   m_GameObject: {fileID: 1083462302}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 155.1, y: 56.3, z: 20.032078}
-  m_LocalScale: {x: 145, y: 1, z: 0.9398771}
+  m_LocalPosition: {x: 144.1922, y: 56.3, z: 20.032078}
+  m_LocalScale: {x: 123.1775, y: 1, z: 0.9398771}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 659509884}
@@ -3994,7 +3994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -578, y: -497}
+  m_AnchoredPosition: {x: -568.2, y: -493.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1236440248
@@ -4017,9 +4017,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Aim bullets using computer cursor
+  m_text: 'Aim using your cursor
 
-    Mouse-click to fire
+    Left mouse-click to fire teleportation bullets
+
+    Press
+    [tab] key for MENU
 
 '
   m_isRightToLeft: 0
@@ -4084,7 +4087,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 133.8065, w: 44.67444}
+  m_margin: {x: 0, y: -1.891468, z: 133.8065, w: 44.67444}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4603,8 +4606,8 @@ Transform:
   m_GameObject: {fileID: 1379373210}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.5, y: 56.3, z: 20.04}
-  m_LocalScale: {x: 14.905686, y: 1, z: 0.95581}
+  m_LocalPosition: {x: 14.6173, y: 56.3, z: 20.04}
+  m_LocalScale: {x: 8.670638, y: 1, z: 0.95581}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 659509884}
@@ -4913,7 +4916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -474.4, y: -501.7}
+  m_AnchoredPosition: {x: -486, y: -503.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1494478158
@@ -4999,7 +5002,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 133.8065, w: 44.67444}
+  m_margin: {x: 0, y: -1.047018, z: 133.8065, w: 44.67444}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5238,11 +5241,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1982439708477280367, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 109.2
+      value: 111.37
       objectReference: {fileID: 0}
     - target: {fileID: 1982439708477280367, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 81.7
+      value: 96.02
       objectReference: {fileID: 0}
     - target: {fileID: 1982439708477280367, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5295,11 +5298,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5110663713707160224, guid: e260689e4aca54b8f855af484229840f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 173.6
+      value: 170.1
       objectReference: {fileID: 0}
     - target: {fileID: 5110663713707160224, guid: e260689e4aca54b8f855af484229840f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 93.1
+      value: 94.8
       objectReference: {fileID: 0}
     - target: {fileID: 5110663713707160224, guid: e260689e4aca54b8f855af484229840f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5370,7 +5373,7 @@ Transform:
   m_GameObject: {fileID: 1665188058}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 107.5, y: 67.5, z: 0}
+  m_LocalPosition: {x: 102.7, y: 67.5, z: 0}
   m_LocalScale: {x: 1, y: 14.486613, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6248,7 +6251,7 @@ Transform:
   m_GameObject: {fileID: 1867727632}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 181.9, y: 79.3, z: 0}
+  m_LocalPosition: {x: 173.6, y: 79.3, z: 0}
   m_LocalScale: {x: 1, y: 38.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6666,7 +6669,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxBullets: 15
   bulletText: {fileID: 1341483748}
-  googleForm: {fileID: 0}
 --- !u!1001 &2039187542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6677,11 +6679,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1982439708477280367, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105.4
+      value: 101.8
       objectReference: {fileID: 0}
     - target: {fileID: 1982439708477280367, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 81.7
+      value: 81.84
       objectReference: {fileID: 0}
     - target: {fileID: 1982439708477280367, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
       propertyPath: m_LocalPosition.z
