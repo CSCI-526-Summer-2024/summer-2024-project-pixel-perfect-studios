@@ -26,7 +26,7 @@ public class BulletManager : MonoBehaviour
         if (currentBullets == 0) {
             // Call the function to restart the game
             // Show Game Over Screen
-            googleForm.DeathBullet();
+            //googleForm.DeathBullet();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.name == "Character")
         {
             //Debug.Log("Hit Enemy!!");
-            googleForm.DeathEnemy();
+            //googleForm.DeathEnemy();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
