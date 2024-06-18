@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,16 @@ public class Gun : MonoBehaviour
 
     public LineRenderer lineRenderer; // NEW
     public float timeStep = 0.1f; // NEW
+
+    public static Gun instance;
+    
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     void Start() // NEW
     {
