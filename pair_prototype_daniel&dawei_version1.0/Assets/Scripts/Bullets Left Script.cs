@@ -8,14 +8,16 @@ public class BulletManager : MonoBehaviour
     public int maxBullets;
     private int currentBullets; 
     public TextMeshProUGUI bulletText;
-    private Gun gunScript;
+    //private Gun gunScript;
+    public Gun gunScript;
     public SendToGoogle googleForm;
+    private bool _no_bullet_check = false;
 
 
     void Start()
     {
-        GameObject gun = GameObject.Find("Gun");
-        gunScript = gun.GetComponent<Gun>();
+        //GameObject gun = GameObject.Find("Gun");
+        //gunScript = gun.GetComponent<Gun>();
         currentBullets = maxBullets; // Initialize bullets
         UpdateBulletText(); // Update UI text on start
     }
@@ -23,10 +25,11 @@ public class BulletManager : MonoBehaviour
     void Update() {
         currentBullets = gunScript.bulletsLeft;
         UpdateBulletText();
-        if (currentBullets == 0) {
+        if (!_no_bullet_check && currentBullets == 0 && GameObject.Find("Bullet(Clone)") == null) {
             // Call the function to restart the game
             // Show Game Over Screen
-            //googleForm.DeathBullet();
+            _no_bullet_check = true;
+            googleForm.DeathBullet();
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE;
         }

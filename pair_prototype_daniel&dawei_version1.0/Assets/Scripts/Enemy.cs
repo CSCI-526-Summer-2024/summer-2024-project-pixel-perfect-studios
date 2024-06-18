@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
     public SendToGoogle googleForm;
+    private bool _collision = false;
     public void KilledEnemy()
     {
         //Debug.Log("Killed one enemy");
@@ -14,10 +15,11 @@ public class Enemy : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Character")
+        if (!_collision && collision.gameObject.name == "Character")
         {
+            _collision = true;
+            googleForm.DeathEnemy();
             Debug.Log("Hit Enemy!!");
-            //googleForm.DeathEnemy();
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE;
         }

@@ -591,6 +591,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7571458036006937618, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
+      propertyPath: googleForm
+      value: 
+      objectReference: {fileID: 1902068056}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -864,6 +868,17 @@ MonoBehaviour:
   leftRegionX: 10
   rightRegionX: 135
   smoothSpeed: 50
+--- !u!114 &626247045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7348531378167082100, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
+  m_PrefabInstance: {fileID: 257285086}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5f65d9d83d74317b484a5d4ebe4078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &659509883
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7571458036006937618, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
+      propertyPath: googleForm
+      value: 
+      objectReference: {fileID: 1902068056}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2065,6 +2084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7571458036006937618, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
+      propertyPath: googleForm
+      value: 
+      objectReference: {fileID: 1902068056}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2657,6 +2680,78 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43dae050e492c4d26b91f40498edcf4b, type: 3}
+--- !u!1001 &1902068055
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 246254633871499534, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: _current_level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 861118302127917856, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: m_Name
+      value: GoogleFormManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866073850874713233, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 120.031525
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866073850874713233, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 76.01374
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866073850874713233, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.17002392
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866073850874713233, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866073850874713233, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866073850874713233, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866073850874713233, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866073850874713233, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866073850874713233, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866073850874713233, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+--- !u!114 &1902068056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 246254633871499534, guid: 48e95c49567754f32a9d9c84d00dc3cf, type: 3}
+  m_PrefabInstance: {fileID: 1902068055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 678ebc2cc27884384a4af37960b2abd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1952755979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2764,7 +2859,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxBullets: 15
   bulletText: {fileID: 1433454830}
-  googleForm: {fileID: 0}
+  gunScript: {fileID: 626247045}
+  googleForm: {fileID: 1902068056}
 --- !u!1001 &2039187542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2817,6 +2913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7571458036006937618, guid: dcd9bf0c453b34ca4a612592633c4fc7, type: 3}
+      propertyPath: googleForm
+      value: 
+      objectReference: {fileID: 1902068056}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2947,3 +3047,4 @@ SceneRoots:
   - {fileID: 1662987514}
   - {fileID: 1252797761455854723}
   - {fileID: 994513624}
+  - {fileID: 1902068055}

@@ -10,8 +10,14 @@ public class SendToGoogle : MonoBehaviour
     [SerializeField] private string URL;
 
     private long _sessionID;
-    private int _die_of_enemy = 0;
-    private int _die_of_no_bullet = 0;
+    private int _die_of_enemy_1 = 0;
+    private int _die_of_enemy_2 = 0;
+    private int _die_of_enemy_3 = 0;
+    private int _die_of_no_bullet_1 = 0;
+    private int _die_of_no_bullet_2 = 0;
+    private int _die_of_no_bullet_3 = 0;
+
+    public int _current_level;
 
     private void Awake()
     {
@@ -21,13 +27,36 @@ public class SendToGoogle : MonoBehaviour
 
     public void DeathEnemy()
     {
-        _die_of_enemy++;
+        if (_current_level == 1)
+        {
+            _die_of_enemy_1++;
+        }
+        else if (_current_level == 2)
+        {
+            _die_of_enemy_2++;
+        }
+        else if (_current_level == 3)
+        {
+            _die_of_enemy_3++;
+        }
         Send();
     }
 
     public void DeathBullet()
     {
-        _die_of_no_bullet++;
+        if (_current_level == 1)
+        {
+            _die_of_no_bullet_1++;
+        }
+        else if (_current_level == 2)
+        {
+            _die_of_no_bullet_2++;
+        }
+        else if (_current_level == 3)
+        {
+            _die_of_no_bullet_3++;
+        }
+        Debug.Log("Send Data!");
         Send();
     }
 
@@ -36,16 +65,20 @@ public class SendToGoogle : MonoBehaviour
         // _die_of_enemy = UnityEngine.Random.Range(0, 200);
         // _die_of_no_bullet = UnityEngine.Random.Range(0, 200);
 
-        StartCoroutine(Post(_sessionID.ToString(), _die_of_enemy.ToString(), _die_of_no_bullet.ToString()));
+        StartCoroutine(Post(_sessionID.ToString(), _die_of_enemy_1.ToString(),_die_of_enemy_2.ToString(), _die_of_enemy_3.ToString(), _die_of_no_bullet_1.ToString(), _die_of_no_bullet_2.ToString(), _die_of_no_bullet_3.ToString()));
     }
 
-    private IEnumerator Post(string sessionID, string _die_of_enemy, string _die_of_no_bullet)
+    private IEnumerator Post(string sessionID, string _die_of_enemy_1, string _die_of_enemy_2, string _die_of_enemy_3, string _die_of_no_bullet_1, string _die_of_no_bullet_2, string _die_of_no_bullet_3)
     {
         WWWForm form = new WWWForm();
-        //https://docs.google.com/forms/u/1/d/e/1FAIpQLSfel1Kq9fm8JetHvPYqWWsYKrl3gxc5ViDl-x2FY894ZfNpKA/formResponse
+        //https://docs.google.com/forms/u/1/d/e/1FAIpQLSfel1Kq9fm8JetHvPYqWWsYKrl3gxc5ViDl-x2FY894ZfNpKA/formRespons
         form.AddField("entry.1449005772", sessionID);
-        form.AddField("entry.1685270148", _die_of_enemy);
-        form.AddField("entry.1139271357", _die_of_no_bullet);
+        form.AddField("entry.1685270148", _die_of_enemy_1);
+        form.AddField("entry.840553378", _die_of_enemy_2);
+        form.AddField("entry.1530451059", _die_of_enemy_3);
+        form.AddField("entry.1139271357", _die_of_no_bullet_1);
+        form.AddField("entry.1300743613", _die_of_no_bullet_2);
+        form.AddField("entry.1012120333", _die_of_no_bullet_3);
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {
@@ -60,15 +93,5 @@ public class SendToGoogle : MonoBehaviour
                 Debug.Log("Form upload complete!");
             }
         }
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
