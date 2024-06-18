@@ -15,6 +15,11 @@ public class Bullet : MonoBehaviour
 
     public int ricochetInt = 10;
     public GameObject character;
+    public float delayBeforeDespawn = 15f;
+
+    void Start() {
+        Destroy(gameObject, delayBeforeDespawn);
+    }
 
     void Awake()
     {
