@@ -26,7 +26,8 @@ public class CameraVer2 : MonoBehaviour
 
     void Update()
     {
-        if(true){ // true will be replaced by a boolean
+        //Debug.Log(Gun.instance.bullet);
+        if(Gun.instance.bullet == null){ // true will be replaced by a boolean
             FollowPlayer();
         }else{
             FollowBullet();
@@ -66,7 +67,13 @@ public class CameraVer2 : MonoBehaviour
     }
 
     void FollowBullet(){
-
+        Transform bulletTransform = Gun.instance.bullet.transform;
+        Vector2 bulletPos = bulletTransform.position;
+        Vector3 desiredPosition;
+            
+        desiredPosition = new Vector3(bulletPos.x, bulletPos.y, transform.position.z);
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        transform.position = smoothedPosition;
     }
     
 }
