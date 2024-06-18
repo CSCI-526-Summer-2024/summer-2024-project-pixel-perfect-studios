@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
     public SendToGoogle googleForm;
-
-    // Update is called once per frame
-    //void KilledEnemy(Collision2D collision)
     public void KilledEnemy()
     {
         //Debug.Log("Killed one enemy");
