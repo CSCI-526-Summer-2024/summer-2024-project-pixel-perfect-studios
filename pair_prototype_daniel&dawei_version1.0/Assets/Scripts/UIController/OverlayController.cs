@@ -34,11 +34,27 @@ public class OverlayController : MonoBehaviour
             instance = this;
         }
     }
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+        //isPaused = true;
+        // Optionally, disable player controls or other elements here
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
+        //isPaused = false;
+        // Optionally, re-enable disabled controls or elements here
+    }
+
 
     public void backToMainMenu(){
+        ResumeGame();
         SceneManager.LoadScene("Level Select");
     }
     public void resetLevel(){
+        ResumeGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private void Update(){
@@ -46,13 +62,19 @@ public class OverlayController : MonoBehaviour
             if(gameStatus == overlayStatus.GAMING){
                 gameStatus = overlayStatus.INGAMEMENU;
                 InGameMenuDialog.SetActive(true);
+                PauseGame();
             }else if(gameStatus == overlayStatus.INGAMEMENU){
                 gameStatus = overlayStatus.GAMING;
                 InGameMenuDialog.SetActive(false);
+                ResumeGame();
             }
         }
         if(characterStatus == playerStatus.LOSE){   // Todo: a boolean variable determine whether character die or not
             GameOverDialog.SetActive(true);
+            //PauseGame();
+        }
+        if(characterStatus == playerStatus.WIN){
+            SceneManager.LoadScene("You Win");
         }
     }
 }

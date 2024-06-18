@@ -8,10 +8,10 @@ public class WinningEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public TextMeshProUGUI winText;
+//     public TextMeshProUGUI winText;
     void Start()
     {
-        winText.text = "";
+//         winText.text = "";
     }
 
     // Update is called once per frame

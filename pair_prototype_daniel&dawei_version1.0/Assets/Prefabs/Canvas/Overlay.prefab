@@ -301,8 +301,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 86.82269, y: -178.09741}
-  m_SizeDelta: {x: 200.4369, y: 281.0324}
+  m_AnchoredPosition: {x: 246.4692, y: -15.9658}
+  m_SizeDelta: {x: 621.8428, y: 997.5032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1195821906132152044
 CanvasRenderer:
@@ -1044,8 +1044,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 88.17499, y: -179.44968}
-  m_SizeDelta: {x: 200.754, y: 281.836}
+  m_AnchoredPosition: {x: -352.8003, y: -507.2799}
+  m_SizeDelta: {x: 821.155, y: 1183.5801}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5613772135275331167
 CanvasRenderer:
@@ -1674,3 +1674,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverDialog: {fileID: 7557645920277335090}
   InGameMenuDialog: {fileID: 8535942397975810629}
+  characterStatus: 0
