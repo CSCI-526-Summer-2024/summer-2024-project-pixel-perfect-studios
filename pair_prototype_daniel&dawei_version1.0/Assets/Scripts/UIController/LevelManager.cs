@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     public GameObject nextLevelButton;
     void Start()
     {
-        //Debug.Log(currentLevelIndex);
+        Debug.Log(currentLevelIndex);
         if (currentLevelIndex == levelInTotal && nextLevelButton != null)
         {
             nextLevelButton.gameObject.SetActive(false);

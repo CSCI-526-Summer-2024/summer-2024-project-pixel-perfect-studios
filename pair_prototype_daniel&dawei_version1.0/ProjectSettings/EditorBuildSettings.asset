@@ -12,12 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/Level Select.unity
     guid: df81a0287e6324185b1d0de0c2616474
   - enabled: 1
-<<<<<<< Updated upstream
-=======
     path: Assets/Scenes/Tutorial Level.unity
     guid: 3795e96ac80e8446daf4ec6c944ec8fd
   - enabled: 1
->>>>>>> Stashed changes
     path: Assets/Scenes/Level 0.unity
     guid: f50720c48931d4a468aa85ff24c139f5
   - enabled: 1
@@ -27,12 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 2.unity
     guid: 87b0b13dafe6b4849b42fbae0fa1d31b
   - enabled: 1
-<<<<<<< Updated upstream
-=======
     path: Assets/Scenes/UI/You Win.unity
     guid: 3f3f070e4ff7745549a653dc9f9119e2
-  - enabled: 0
->>>>>>> Stashed changes
-    path: Assets/Scenes/Daniel's Workspace.unity
-    guid: fd0d7880c0fb243199c6f8713b012424
   m_configObjects: {}
