@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9173364740541095923}
   m_Layer: 6
   m_Name: GoldEnemy
-  m_TagString: Enemy
+  m_TagString: GoldEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42e8722999614db0983c29cdddf8779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  googleForm: {fileID: 0}
 --- !u!61 &1372617505350397777
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -157,4 +156,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6b7e0eee7b24bb2b38619bcb422c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winText: {fileID: 0}

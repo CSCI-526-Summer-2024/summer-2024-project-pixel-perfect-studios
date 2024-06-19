@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     public GameObject nextLevelButton;
     void Start()
     {
-        Debug.Log("You are in" + currentLevelIndex);
+        Debug.Log("You are in " + currentLevelIndex);
         if (currentLevelIndex == levelInTotal && nextLevelButton != null)
         {
             nextLevelButton.gameObject.SetActive(false);

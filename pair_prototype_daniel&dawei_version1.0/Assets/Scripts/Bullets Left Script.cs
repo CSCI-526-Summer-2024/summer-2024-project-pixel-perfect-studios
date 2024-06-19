@@ -7,12 +7,13 @@ public class BulletManager : MonoBehaviour
     private int currentBullets;
     public TextMeshProUGUI bulletText;
     private Gun gunScript;
-    public SendToGoogle googleForm;
+    private SendToGoogle googleForm;
 
     private bool _no_bullet_check=false;
 
     void Start()
     {
+        googleForm = GameObject.Find("GoogleFormManager").GetComponent<SendToGoogle>();
         GameObject gun = GameObject.Find("Character/Arm/Gun");
         if (gun != null) {
             gunScript = gun.GetComponent<Gun>();
