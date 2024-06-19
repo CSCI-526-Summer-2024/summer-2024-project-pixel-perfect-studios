@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
         {
             _collision = true;
             googleForm.DeathEnemy();
-            Debug.Log("Hit Enemy!!");
+            Debug.Log("Hit Enemy and Die!!");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE;
         }

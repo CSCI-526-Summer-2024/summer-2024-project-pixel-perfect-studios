@@ -39,6 +39,7 @@ public class SendToGoogle : MonoBehaviour
         {
             _die_of_enemy_3++;
         }
+        Debug.Log("Send Enemy Death Data!");
         Send();
     }
 
@@ -56,7 +57,7 @@ public class SendToGoogle : MonoBehaviour
         {
             _die_of_no_bullet_3++;
         }
-        Debug.Log("Send Data!");
+        Debug.Log("Send Bullet Data!");
         Send();
     }
 
@@ -71,7 +72,7 @@ public class SendToGoogle : MonoBehaviour
     private IEnumerator Post(string sessionID, string _die_of_enemy_1, string _die_of_enemy_2, string _die_of_enemy_3, string _die_of_no_bullet_1, string _die_of_no_bullet_2, string _die_of_no_bullet_3)
     {
         WWWForm form = new WWWForm();
-        //https://docs.google.com/forms/u/1/d/e/1FAIpQLSfel1Kq9fm8JetHvPYqWWsYKrl3gxc5ViDl-x2FY894ZfNpKA/formRespons
+        //https://docs.google.com/forms/u/1/d/e/1FAIpQLSfel1Kq9fm8JetHvPYqWWsYKrl3gxc5ViDl-x2FY894ZfNpKA/formResponse
         form.AddField("entry.1449005772", sessionID);
         form.AddField("entry.1685270148", _die_of_enemy_1);
         form.AddField("entry.840553378", _die_of_enemy_2);

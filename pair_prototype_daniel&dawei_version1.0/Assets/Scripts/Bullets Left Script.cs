@@ -7,6 +7,9 @@ public class BulletManager : MonoBehaviour
     private int currentBullets;
     public TextMeshProUGUI bulletText;
     private Gun gunScript;
+    public SendToGoogle googleForm;
+
+    private bool _no_bullet_check=false;
 
     void Start()
     {
@@ -25,13 +28,16 @@ public class BulletManager : MonoBehaviour
     }
 
     void Update() {
-        if (gunScript != null) {
-            currentBullets = gunScript.bulletsLeft;
-            UpdateBulletText();
-            if (currentBullets == 0) {
-                // Handle game over logic
-                // Example: OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE;
-            }
+        currentBullets = gunScript.bulletsLeft;
+        UpdateBulletText();
+        if (!_no_bullet_check && currentBullets == 0 && GameObject.Find("Bullet(Clone)") == null) {
+            // Call the function to restart the game
+            // Show Game Over Screen
+            _no_bullet_check = true;
+            googleForm.DeathBullet();
+            Debug.Log("No Bullet Left!");
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE;
         }
     }
 
