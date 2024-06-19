@@ -200,3 +200,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   URL: 
+  _current_level: 0
