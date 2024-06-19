@@ -47,6 +47,13 @@ public class Gun : MonoBehaviour
             Shoot(direction);
             bulletsLeft--;
         }
+
+        if (bullet != null) {
+            lineRenderer.enabled = false;
+        } else {
+            lineRenderer.enabled = true;
+        }
+
     }
 
     public void Shoot(Vector2 direction)
