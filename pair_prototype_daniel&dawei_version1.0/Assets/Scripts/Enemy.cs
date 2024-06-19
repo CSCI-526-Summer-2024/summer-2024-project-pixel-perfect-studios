@@ -16,8 +16,12 @@ public class Enemy : MonoBehaviour
     public void KilledEnemy()
     {
         //Debug.Log("Killed one enemy");
+        Debug.Log(transform.position); //Collect coordinate of collision
+        Vector2 position2D = new Vector2(transform.position.x, transform.position.y);
+        googleForm.AddEnemiesKilled(position2D);
         Destroy(gameObject);
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (!_collision && collision.gameObject.name == "Character" && gameObject.tag != "GoldEnemy")
