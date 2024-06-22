@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CameraOperations : MonoBehaviour
 {
-    private float[] size = {34f, 26.41f};
+    public float[] size;
+    // private float[] size = {34f, 26.41f};
     public Vector3 offset;
     public Transform player;
     public float leftRegionX;
@@ -17,6 +18,14 @@ public class CameraOperations : MonoBehaviour
     void Start()
     {
         mainCamera = GetComponent<Camera>();
+        if(mainCamera != null){
+            Debug.Log(mainCamera.orthographicSize);
+            size = new float[2];
+            Debug.Log(size);
+            size[0] = mainCamera.orthographicSize;
+            size[1] = size[0] - 8f;
+            Debug.Log(size[0]);
+        }
         initialPosition = transform.position;
 
     }
