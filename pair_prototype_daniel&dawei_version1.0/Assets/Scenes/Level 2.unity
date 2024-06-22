@@ -7069,6 +7069,9 @@ MonoBehaviour:
   offsetAmountX: 20
   offsetAmountY: 20
   smoothSpeed: 5
+  sizeChangeSpeed: 5
+  bulletShootCameraSize: 50
+  biggerPlayerView: 0
 --- !u!1 &716638300
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,10 @@ public class CameraVer2 : MonoBehaviour
     public float offsetAmountX;
     public float offsetAmountY;
     public float smoothSpeed;
+    private float[] size;
+    public float sizeChangeSpeed = 2f;
+    public float bulletShootCameraSize;
+    public Boolean biggerPlayerView = false;
 
     Vector2 MousePos
     {
@@ -19,6 +24,18 @@ public class CameraVer2 : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        cam = Camera.main;
+        if(cam != null){
+            Debug.Log(cam.orthographicSize);
+            size = new float[2];
+            Debug.Log(size);
+            size[0] = cam.orthographicSize;
+            size[1] = bulletShootCameraSize;
+            Debug.Log(size[0]);
+        }
+    }
     void Awake()
     {
         cam = Camera.main;
@@ -29,11 +46,19 @@ public class CameraVer2 : MonoBehaviour
         //Debug.Log(Gun.instance.bullet);
         if(Gun.instance.bullet == null){ // true will be replaced by a boolean
             FollowPlayer();
+            
         }else{
             FollowBullet();
+            StartCoroutine(ChangeOrthographicSize(size[1]));
         }
-        
-        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            biggerPlayerView = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            biggerPlayerView = true;
+        }
     }
 
     void FollowPlayer()
@@ -41,7 +66,15 @@ public class CameraVer2 : MonoBehaviour
         Vector2 playerPos = player.position;
         Vector2 mousePos = MousePos;
         Vector3 desiredPosition;
-
+        if (biggerPlayerView)
+        {
+            StartCoroutine(ChangeOrthographicSize(size[0] + 50f));
+            //cam.orthographicSize = size[0] + 20f;
+        }
+        else
+        {
+            StartCoroutine(ChangeOrthographicSize(size[0]));
+        }
         // Judge the mosue's relative position
         if (mousePos.x > playerPos.x) // Mosue is at right of the character
         {
@@ -74,6 +107,16 @@ public class CameraVer2 : MonoBehaviour
         desiredPosition = new Vector3(bulletPos.x, bulletPos.y, transform.position.z);
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         transform.position = smoothedPosition;
+    }
+
+    IEnumerator ChangeOrthographicSize(float targetSize)
+    {
+        while (Mathf.Abs(cam.orthographicSize - targetSize) > 0.01f)
+        {
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetSize, sizeChangeSpeed * Time.deltaTime);
+            yield return null;
+        }
+        cam.orthographicSize = targetSize;
     }
     
 }
