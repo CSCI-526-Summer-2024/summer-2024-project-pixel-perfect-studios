@@ -52,11 +52,11 @@ public class CameraVer2 : MonoBehaviour
             allowedChange = false;
             StartCoroutine(ChangeOrthographicSize(size[1]));
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1) && allowedChange)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && allowedChange)
         {
             biggerPlayerView = false;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && allowedChange)
+        else if (Input.GetKeyDown(KeyCode.Alpha1) && allowedChange)
         {
             biggerPlayerView = true;
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class CameraOperations : MonoBehaviour
     private bool needFollow = false;
     private Vector3 initialPosition; // Camera's init pos
     public float smoothSpeed;
+    public Boolean enableSwitch = true;
 
     void Start()
     {
@@ -36,7 +38,7 @@ public class CameraOperations : MonoBehaviour
         if(needFollow){
             followPlayer();
         }
-        if (mainCamera != null)
+        if (mainCamera != null && enableSwitch)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {

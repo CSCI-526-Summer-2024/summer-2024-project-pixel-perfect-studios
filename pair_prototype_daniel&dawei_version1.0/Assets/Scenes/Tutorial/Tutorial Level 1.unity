@@ -1301,6 +1301,7 @@ MonoBehaviour:
   leftRegionX: 107.1
   rightRegionX: 140
   smoothSpeed: 50
+  enableSwitch: 0
 --- !u!1 &813318196
 GameObject:
   m_ObjectHideFlags: 0
