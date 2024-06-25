@@ -11,10 +11,10 @@ public class CameraVer2 : MonoBehaviour
     public float offsetAmountY;
     public float smoothSpeed;
     private float[] size;
-    public float sizeChangeSpeed = 2f;
+    private float sizeChangeSpeed = 100f;
     public float bulletShootCameraSize;
     public Boolean biggerPlayerView = false;
-
+    private Boolean allowedChange = true;
     Vector2 MousePos
     {
         get
@@ -49,13 +49,14 @@ public class CameraVer2 : MonoBehaviour
             
         }else{
             FollowBullet();
+            allowedChange = false;
             StartCoroutine(ChangeOrthographicSize(size[1]));
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && allowedChange)
         {
             biggerPlayerView = false;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && allowedChange)
         {
             biggerPlayerView = true;
         }
@@ -66,13 +67,15 @@ public class CameraVer2 : MonoBehaviour
         Vector2 playerPos = player.position;
         Vector2 mousePos = MousePos;
         Vector3 desiredPosition;
-        if (biggerPlayerView)
+        if (biggerPlayerView && allowedChange)
         {
+            allowedChange = false;
             StartCoroutine(ChangeOrthographicSize(size[0] + 50f));
             //cam.orthographicSize = size[0] + 20f;
         }
-        else
+        else if(!biggerPlayerView && allowedChange)
         {
+            allowedChange = false;
             StartCoroutine(ChangeOrthographicSize(size[0]));
         }
         // Judge the mosue's relative position
@@ -117,6 +120,7 @@ public class CameraVer2 : MonoBehaviour
             yield return null;
         }
         cam.orthographicSize = targetSize;
+        allowedChange = true;
     }
     
 }

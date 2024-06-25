@@ -6763,7 +6763,6 @@ MonoBehaviour:
   offsetAmountX: 20
   offsetAmountY: 20
   smoothSpeed: 1
-  sizeChangeSpeed: 1
   bulletShootCameraSize: 50
   biggerPlayerView: 0
 --- !u!1 &716638300
