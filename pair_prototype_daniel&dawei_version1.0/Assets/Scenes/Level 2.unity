@@ -6747,8 +6747,8 @@ MonoBehaviour:
   player: {fileID: 503883800}
   offsetAmountX: 20
   offsetAmountY: 20
-  smoothSpeed: 5
-  sizeChangeSpeed: 5
+  smoothSpeed: 1
+  sizeChangeSpeed: 1
   bulletShootCameraSize: 50
   biggerPlayerView: 0
 --- !u!1 &716638300
@@ -19117,11 +19117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6478664680324638058, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 148.6
+      value: -19.9
       objectReference: {fileID: 0}
     - target: {fileID: 6478664680324638058, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 165.5
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 6478664680324638058, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
       propertyPath: m_LocalPosition.z

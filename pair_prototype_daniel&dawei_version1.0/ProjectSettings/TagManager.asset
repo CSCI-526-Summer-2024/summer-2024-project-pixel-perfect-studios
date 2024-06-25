@@ -9,6 +9,7 @@ TagManager:
   - Gate
   - BluePortal
   - OrangePortal
+  - GoldEnemy
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - IgnoreRaycast
-  - 
+  - Bullet
   - 
   - 
   - 
