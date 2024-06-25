@@ -1259,7 +1259,7 @@ GameObject:
   - component: {fileID: 516907353}
   - component: {fileID: 516907352}
   m_Layer: 5
-  m_Name: Pink enemy
+  m_Name: Camera instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1304,7 +1304,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press 2' for zoom in, press '1' back to zoom out
+  m_text: Press 2' to zoom in, press '1' to zoom back out
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
