@@ -79,8 +79,10 @@ public class Gun : MonoBehaviour
     public void UpdateTrajectory(Vector2 startPosition, Vector2 direction) // NEW
     {
         Vector2 currentPosition = startPosition;
+
+        float sphereRadius = 0.3f;
         
-        RaycastHit2D hit = Physics2D.Raycast(currentPosition, direction, Mathf.Infinity, raycastMask);
+        RaycastHit2D hit = Physics2D.CircleCast(currentPosition, sphereRadius, direction, Mathf.Infinity, raycastMask);
         
 
         float distance = 1000f;
