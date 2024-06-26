@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     public LayerMask raycastMask;
     public Transform armPosition; // The point of arm
     public static Gun instance;
+    public Boolean allowShooting = true;
     
     private void Awake()
     {
@@ -42,7 +43,7 @@ public class Gun : MonoBehaviour
             
         // }
         
-        if (Input.GetMouseButtonDown(0) && (bulletsLeft > 0) && (bullet == null)) // Detect mouse click
+        if (Input.GetMouseButtonDown(0) && (bulletsLeft > 0) && (bullet == null) && allowShooting) // Detect mouse click
         { 
             Shoot(direction);
             bulletsLeft--;

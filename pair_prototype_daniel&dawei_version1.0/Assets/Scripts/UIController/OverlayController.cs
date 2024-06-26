@@ -27,6 +27,10 @@ public class OverlayController : MonoBehaviour
     public playerStatus characterStatus = playerStatus.PLAY;
     public static OverlayController instance;
 
+    void Start()
+    {
+        Gun.instance.allowShooting = true;
+    }
     private void Awake()
     {
         if (instance == null)
@@ -36,6 +40,7 @@ public class OverlayController : MonoBehaviour
     }
     void PauseGame()
     {
+        Gun.instance.allowShooting = false;
         Time.timeScale = 0;
         //isPaused = true;
         // Optionally, disable player controls or other elements here
@@ -43,18 +48,22 @@ public class OverlayController : MonoBehaviour
 
     void ResumeGame()
     {
+        Gun.instance.allowShooting = true;
         Time.timeScale = 1;
         //isPaused = false;
         // Optionally, re-enable disabled controls or elements here
     }
 
 
+
     public void backToMainMenu(){
         ResumeGame();
         SceneManager.LoadScene("Level Select");
     }
+
     public void resetLevel(){
-        ResumeGame();
+        //ResumeGame();
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private void Update(){
@@ -70,10 +79,12 @@ public class OverlayController : MonoBehaviour
             }
         }
         if(characterStatus == playerStatus.LOSE){   // Todo: a boolean variable determine whether character die or not
+            Gun.instance.allowShooting = false;
             GameOverDialog.SetActive(true);
             //PauseGame();
         }
         if(characterStatus == playerStatus.WIN){
+            Gun.instance.allowShooting = false;
             SceneManager.LoadScene("You Win");
         }
     }
