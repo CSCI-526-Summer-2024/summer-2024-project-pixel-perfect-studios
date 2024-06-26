@@ -37,6 +37,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "Enemy") {
             collision.gameObject.GetComponent<Enemy>().KilledEnemy();
             rb.velocity = direction * speed;
