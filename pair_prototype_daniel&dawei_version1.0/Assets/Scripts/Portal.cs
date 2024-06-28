@@ -7,6 +7,8 @@ public class Portal : MonoBehaviour {
     Vector3 positionOfCurrentPortal;
     public GameObject character;
     Vector3 nearestPortalPosition;
+
+    private SendToGoogle googleForm;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +38,10 @@ public class Portal : MonoBehaviour {
 
             nearestPortalPosition = nearestPortal.transform.position;
             Destroy(nearestPortal);
+            googleForm.PortalUsed();
             character.transform.position = nearestPortalPosition;
             Destroy(gameObject);
+            googleForm.PortalUsed();
         }
         if (gameObject.tag == "OrangePortal") {
             GameObject[] portals = GameObject.FindGameObjectsWithTag("BluePortal");
@@ -54,8 +58,10 @@ public class Portal : MonoBehaviour {
             }
             nearestPortalPosition = nearestPortal.transform.position;
             Destroy(nearestPortal);
+            googleForm.PortalUsed();
             character.transform.position = nearestPortalPosition;
             Destroy(gameObject);
+            googleForm.PortalUsed();
         }
     }
 }
