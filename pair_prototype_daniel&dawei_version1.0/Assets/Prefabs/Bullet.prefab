@@ -163,6 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 430994963592824730}
   speed: 70
-  ricochetInt: 5
+  ricochetInt: 2
   character: {fileID: 0}
   delayBeforeDespawn: 1000
