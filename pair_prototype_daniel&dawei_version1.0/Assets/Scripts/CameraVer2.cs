@@ -15,6 +15,7 @@ public class CameraVer2 : MonoBehaviour
     public float bulletShootCameraSize;
     public Boolean biggerPlayerView = false;
     private Boolean allowedChange = true;
+    private Boolean needFollowPlayer = true;
     Vector2 MousePos
     {
         get
@@ -45,12 +46,16 @@ public class CameraVer2 : MonoBehaviour
     {
         //Debug.Log(Gun.instance.bullet);
         if(Gun.instance.bullet == null){ // true will be replaced by a boolean
-            FollowPlayer();
+            needFollowPlayer = true;
+            //FollowPlayer();
             
         }else{
+            needFollowPlayer = false;
+            /*
             FollowBullet();
             allowedChange = false;
             StartCoroutine(ChangeOrthographicSize(size[1]));
+            */
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && allowedChange)
         {
@@ -60,6 +65,18 @@ public class CameraVer2 : MonoBehaviour
         {
             biggerPlayerView = true;
         }
+    }
+
+    void FixedUpdate()
+    {
+        if(needFollowPlayer){
+            FollowPlayer();
+        }else{
+            FollowBullet();
+            allowedChange = false;
+            StartCoroutine(ChangeOrthographicSize(size[1]));
+        }
+
     }
 
     void FollowPlayer()
