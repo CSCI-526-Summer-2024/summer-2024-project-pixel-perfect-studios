@@ -38,10 +38,10 @@ public class Portal : MonoBehaviour {
 
             nearestPortalPosition = nearestPortal.transform.position;
             Destroy(nearestPortal);
-            googleForm.PortalUsed();
+            googleForm.TrackPortalUse(nearestPortalPosition);
             character.transform.position = nearestPortalPosition;
             Destroy(gameObject);
-            googleForm.PortalUsed();
+            googleForm?.TrackPortalUse(transform.position);
         }
         if (gameObject.tag == "OrangePortal") {
             GameObject[] portals = GameObject.FindGameObjectsWithTag("BluePortal");
@@ -58,10 +58,10 @@ public class Portal : MonoBehaviour {
             }
             nearestPortalPosition = nearestPortal.transform.position;
             Destroy(nearestPortal);
-            googleForm.PortalUsed();
+            googleForm.TrackPortalUse(nearestPortalPosition);
             character.transform.position = nearestPortalPosition;
             Destroy(gameObject);
-            googleForm.PortalUsed();
+            googleForm.TrackPortalUse(transform.position);
         }
     }
 }
