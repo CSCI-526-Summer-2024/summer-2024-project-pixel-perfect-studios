@@ -30,6 +30,7 @@ public class OverlayController : MonoBehaviour
     void Start()
     {
         Gun.instance.allowShooting = true;
+        Time.timeScale = 1;
     }
     private void Awake()
     {
@@ -81,11 +82,13 @@ public class OverlayController : MonoBehaviour
         if(characterStatus == playerStatus.LOSE){   // Todo: a boolean variable determine whether character die or not
             Gun.instance.allowShooting = false;
             GameOverDialog.SetActive(true);
-            //PauseGame();
+            PauseGame();
         }
         if(characterStatus == playerStatus.WIN){
+            PauseGame();
             Gun.instance.allowShooting = false;
             SceneManager.LoadScene("You Win");
+            
         }
     }
 }
