@@ -15,9 +15,13 @@ public class SendToGoogle : MonoBehaviour
     private int _die_of_enemy_1 = 0;
     private int _die_of_enemy_2 = 0;
     private int _die_of_enemy_3 = 0;
+    private int _die_of_enemy_4 = 0;
+    private int _die_of_enemy_5 = 0;
     private int _die_of_no_bullet_1 = 0;
     private int _die_of_no_bullet_2 = 0;
     private int _die_of_no_bullet_3 = 0;
+    private int _die_of_no_bullet_4 = 0;
+    private int _die_of_no_bullet_5 = 0;
     private List<Vector2> _enemies_killed = new List<Vector2>();
     private int _portalsUsed = 0;
     private int _totalPortals = 0;
@@ -55,7 +59,7 @@ public class SendToGoogle : MonoBehaviour
     private void CountPortalsInScene()
     {
         _totalPortals = GameObject.FindGameObjectsWithTag("OrangePortal").Length + GameObject.FindGameObjectsWithTag("BluePortal").Length;
-        Debug.Log("Total Orange Portals in the scene: " + _totalPortals);
+        Debug.Log("Total Portals in the scene: " + _totalPortals);
     }
 
     public void DeathEnemy()
@@ -71,6 +75,14 @@ public class SendToGoogle : MonoBehaviour
         else if (_current_level == 3)
         {
             _die_of_enemy_3++;
+        }
+        else if (_current_level == 4)
+        {
+            _die_of_enemy_4++;
+        }
+        else if (_current_level == 5)
+        {
+            _die_of_enemy_5++;
         }
         Debug.Log("Send Enemy Death Data!");
         Send();
@@ -89,6 +101,14 @@ public class SendToGoogle : MonoBehaviour
         else if (_current_level == 3)
         {
             _die_of_no_bullet_3++;
+        }
+        else if (_current_level == 4)
+        {
+            _die_of_no_bullet_4++;
+        }
+        else if (_current_level == 5)
+        {
+            _die_of_no_bullet_5++;
         }
         Debug.Log("Send Bullet Data!");
         Send();
@@ -114,13 +134,12 @@ public class SendToGoogle : MonoBehaviour
     public void PortalUsed()
     {
         _portalsUsed++;
+        Debug.Log("Portal used" + _portalsUsed++);
     }
 
 
     public void Send()
     {
-        // _die_of_enemy = UnityEngine.Random.Range(0, 200);
-        // _die_of_no_bullet = UnityEngine.Random.Range(0, 200);
 
         string _enemies_killed_str = ListToString(_enemies_killed);
 
@@ -136,11 +155,11 @@ public class SendToGoogle : MonoBehaviour
             _portalUsageRate = (float)Math.Round(_portalUsageRate, 2) * 100;
         }
 
-        StartCoroutine(Post(_playerID.ToString(), _die_of_enemy_1.ToString(),_die_of_enemy_2.ToString(), _die_of_enemy_3.ToString(), _die_of_no_bullet_1.ToString(), _die_of_no_bullet_2.ToString(), _die_of_no_bullet_3.ToString(), _enemies_killed_str, _portalUsageRate.ToString()));
+        StartCoroutine(Post(_playerID.ToString(), _die_of_enemy_1.ToString(),_die_of_enemy_2.ToString(), _die_of_enemy_3.ToString(), _die_of_enemy_4.ToString(), _die_of_enemy_5.ToString(), _die_of_no_bullet_1.ToString(), _die_of_no_bullet_2.ToString(), _die_of_no_bullet_3.ToString(), _die_of_no_bullet_4.ToString(), _die_of_no_bullet_5.ToString(), _enemies_killed_str, _portalUsageRate.ToString()));
         _enemies_killed = new List<Vector2>();
     }
 
-    private IEnumerator Post(string playerID, string _die_of_enemy_1, string _die_of_enemy_2, string _die_of_enemy_3, string _die_of_no_bullet_1, string _die_of_no_bullet_2, string _die_of_no_bullet_3, string _enemies_killed, string _portalUsageRate)
+    private IEnumerator Post(string playerID, string _die_of_enemy_1, string _die_of_enemy_2, string _die_of_enemy_3, string _die_of_enemy_4, string _die_of_enemy_5, string _die_of_no_bullet_1, string _die_of_no_bullet_2, string _die_of_no_bullet_3, string _die_of_no_bullet_4, string _die_of_no_bullet_5, string _enemies_killed, string _portalUsageRate)
     {
         WWWForm form = new WWWForm();
         //https://docs.google.com/forms/u/1/d/e/1FAIpQLSfel1Kq9fm8JetHvPYqWWsYKrl3gxc5ViDl-x2FY894ZfNpKA/formResponse
@@ -160,6 +179,16 @@ public class SendToGoogle : MonoBehaviour
         {
             form.AddField("entry.1685270148", _die_of_enemy_3);
             form.AddField("entry.1012120333", _die_of_no_bullet_3);
+        }
+        else if (_current_level == 4)
+        {
+            form.AddField("entry.1685270148", _die_of_enemy_4);
+            form.AddField("entry.1012120333", _die_of_no_bullet_4);
+        }
+        else if (_current_level == 5)
+        {
+            form.AddField("entry.1685270148", _die_of_enemy_5);
+            form.AddField("entry.1012120333", _die_of_no_bullet_5);
         }
         form.AddField("entry.425979302", _enemies_killed);
 
