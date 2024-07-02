@@ -10,10 +10,12 @@ public class WinningEnemy : MonoBehaviour
 
 //     public TextMeshProUGUI winText;
     private SendToGoogle googleForm;
+    public int _current_level;
 
     void Start()
     {
         googleForm = GameObject.Find("GoogleFormManager").GetComponent<SendToGoogle>();
+        googleForm.PlayerStartedLevel(_current_level); //unsure where to put this
 //         winText.text = "";
     }
 
@@ -27,6 +29,8 @@ public class WinningEnemy : MonoBehaviour
         //winText.text = "You win!";
         OverlayController.instance.characterStatus = OverlayController.playerStatus.WIN;
         googleForm.EnemiesKilled();
+        googleForm.PlayerCompletedLevel(_current_level);
+
     }
 
 }
