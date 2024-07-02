@@ -59,7 +59,7 @@ public class OverlayController : MonoBehaviour
 
     public void backToMainMenu(){
         ResumeGame();
-        SceneManager.LoadScene("Level Select");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void resetLevel(){

@@ -16,6 +16,11 @@ public class LevelManager : MonoBehaviour
             nextLevelButton.gameObject.SetActive(false);
         }
     }
+
+    public void backToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
     public void LoadNextLevel()
     {
         /*
