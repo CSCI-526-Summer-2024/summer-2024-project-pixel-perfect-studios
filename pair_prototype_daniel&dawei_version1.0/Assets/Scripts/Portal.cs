@@ -13,6 +13,7 @@ public class Portal : MonoBehaviour {
     void Start()
     {
         character = GameObject.Find("Character");
+        googleForm = GameObject.Find("GoogleFormManager").GetComponent<SendToGoogle>();
     }
 
     // Update is called once per frame

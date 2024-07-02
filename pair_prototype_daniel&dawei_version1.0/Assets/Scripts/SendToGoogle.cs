@@ -126,7 +126,7 @@ public class SendToGoogle : MonoBehaviour
 
         float _portalUsageRate;
 
-        if (_totalPortals == 0)
+        if (_totalPortals == 0 || _portalsUsed == 0)
         {
             _portalUsageRate = 0;
         }
@@ -136,7 +136,10 @@ public class SendToGoogle : MonoBehaviour
             _portalUsageRate = (float)Math.Round(_portalUsageRate, 2) * 100;
         }
 
+        Debug.Log("Send Data to Google Forms!");
+
         StartCoroutine(Post(_playerID.ToString(), _die_of_enemy_1.ToString(),_die_of_enemy_2.ToString(), _die_of_enemy_3.ToString(), _die_of_no_bullet_1.ToString(), _die_of_no_bullet_2.ToString(), _die_of_no_bullet_3.ToString(), _enemies_killed_str, _portalUsageRate.ToString()));
+
         _enemies_killed = new List<Vector2>();
     }
 
@@ -162,7 +165,6 @@ public class SendToGoogle : MonoBehaviour
             form.AddField("entry.1012120333", _die_of_no_bullet_3);
         }
         form.AddField("entry.425979302", _enemies_killed);
-
 
         form.AddField("entry.721250083", _portalUsageRate);
 
