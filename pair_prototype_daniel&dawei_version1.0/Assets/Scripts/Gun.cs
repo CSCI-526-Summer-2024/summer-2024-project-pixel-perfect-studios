@@ -3,6 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class TrajectorySegment
+{
+    public Vector2 startPosition;
+    public Vector2 direction;
+    public int maxPoints;
+
+    public TrajectorySegment(Vector2 startPos, Vector2 dir, int points)
+    {
+        startPosition = startPos;
+        direction = dir;
+        maxPoints = points;
+    }
+}
+
 public class Gun : MonoBehaviour
 {
     public GameObject bulletPrefab; // Assign the Bullet prefab in the Inspector
@@ -17,6 +31,8 @@ public class Gun : MonoBehaviour
     public Transform armPosition; // The point of arm
     public static Gun instance;
     public Boolean allowShooting = true;
+
+    private List<TrajectorySegment> trajectorySegments = new List<TrajectorySegment>();
     
     private void Awake()
     {
@@ -79,44 +95,46 @@ public class Gun : MonoBehaviour
 
     public void UpdateTrajectory(Vector2 startPosition, Vector2 direction) // NEW
     {
+        trajectorySegments.Clear();
         Vector2 currentPosition = startPosition;
-
         float sphereRadius = 0.3f;
-        
-        RaycastHit2D hit = Physics2D.CircleCast(currentPosition, sphereRadius, direction, Mathf.Infinity, raycastMask);
-        
 
-        float distance = 1000f;
-        if (hit.collider != null)
+        for (int bounces = 0; bounces < 2; bounces++)
         {
-            distance = hit.distance;
-            //Debug.Log(distance);
-        }
+            RaycastHit2D hit = Physics2D.CircleCast(currentPosition, sphereRadius, direction, Mathf.Infinity, raycastMask);
+            float distance = 1000f;
 
-        if (distance > 0)
-        {
-            int maxPoints = Mathf.CeilToInt(distance / 0.2f);
-            //Debug.DrawRay(currentPosition, direction.normalized * maxPoints, Color.red, 1f);
-            // Debug.Log(maxPoints);
-            lineRenderer.enabled = true;
-            lineRenderer.positionCount = maxPoints;
+            //Debug.DrawRay(hit.point + hit.normal * sphereRadius, Vector2.Reflect(direction, hit.normal) * 2f, Color.red, 2f);
+            //Debug.DrawRay(currentPosition + direction.normalized * hit.distance, Vector2.Reflect(direction, hit.normal) * 2f, Color.red, 2f);
 
-            Vector2 smallVelocity = direction.normalized * 0.2f;
-
-            for (int i = 0; i < maxPoints; i++)
+            if (hit.collider != null)
             {
-                lineRenderer.SetPosition(i, currentPosition);
+                Debug.Log(hit.collider.tag);
+                distance = hit.distance;
+                int maxPoints = Mathf.CeilToInt(distance / 0.2f);
+                trajectorySegments.Add(new TrajectorySegment(currentPosition, direction, maxPoints));
+
+                currentPosition = hit.point + hit.normal * sphereRadius;
+                direction = Vector2.Reflect(direction, hit.normal);
+            }
+            else
+            {
+                int maxPoints = Mathf.CeilToInt(distance / 0.2f);
+                trajectorySegments.Add(new TrajectorySegment(currentPosition, direction, maxPoints));
+                break;
+            }
+        }
+        lineRenderer.positionCount = 0;
+        foreach (var segment in trajectorySegments)
+        {
+            lineRenderer.positionCount += segment.maxPoints;
+            currentPosition = segment.startPosition;
+            Vector2 smallVelocity = segment.direction.normalized * 0.2f;
+            for (int i = 0; i < segment.maxPoints; i++)
+            {
+                lineRenderer.SetPosition(lineRenderer.positionCount - segment.maxPoints + i, currentPosition);
                 currentPosition += smallVelocity;
             }
-
-            // if (hit.collider != null)
-            // {
-            //     lineRenderer.SetPosition(maxPoints - 1, hit.point);
-            // }
-            // else
-            // {
-            //     lineRenderer.SetPosition(maxPoints - 1, currentPosition);
-            // }
         }
     }
     public void ClearTrajectory()

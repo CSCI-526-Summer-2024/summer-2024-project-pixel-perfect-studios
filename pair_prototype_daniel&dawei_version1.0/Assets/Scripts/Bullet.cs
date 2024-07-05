@@ -52,11 +52,15 @@ public class Bullet : MonoBehaviour
         } 
         else {
             hitCount++;
+            float sphereRadius = 0.3f;
+
             if(collision.gameObject.tag == "ButtonEffective"){
                 collision.gameObject.GetComponent<Button>().hitButton();
             }
             // Reflect the bullet's direction when it hits something
             Vector2 normal = collision.contacts[0].normal;
+            // Update the position of the center of bullet
+            gameObject.transform.position = collision.contacts[0].point + normal * sphereRadius;
             direction = Vector2.Reflect(direction, normal);
             rb.velocity = direction * speed;
         }
