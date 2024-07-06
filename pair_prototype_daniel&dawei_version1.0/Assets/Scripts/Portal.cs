@@ -39,7 +39,7 @@ public class Portal : MonoBehaviour {
 
             nearestPortalPosition = nearestPortal.transform.position;
             Destroy(nearestPortal);
-            googleForm.TrackPortalUse(nearestPortalPosition);
+            // googleForm.TrackPortalUse(nearestPortalPosition);
             character.transform.position = nearestPortalPosition;
             Destroy(gameObject);
             googleForm?.TrackPortalUse(transform.position);
@@ -59,7 +59,7 @@ public class Portal : MonoBehaviour {
             }
             nearestPortalPosition = nearestPortal.transform.position;
             Destroy(nearestPortal);
-            googleForm.TrackPortalUse(nearestPortalPosition);
+            // googleForm.TrackPortalUse(nearestPortalPosition);
             character.transform.position = nearestPortalPosition;
             Destroy(gameObject);
             googleForm.TrackPortalUse(transform.position);

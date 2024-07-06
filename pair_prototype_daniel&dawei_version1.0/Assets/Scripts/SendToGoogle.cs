@@ -40,6 +40,7 @@ public class SendToGoogle : MonoBehaviour
     private List<Vector2> _portalsUsedLocations = new List<Vector2>();
     private int _portalsUsed = 0;
     private int _totalPortals = 0;
+    private float completion_ratio = 0;
 
     public int _current_level;
 
@@ -226,37 +227,17 @@ public class SendToGoogle : MonoBehaviour
         }
         string portal_locations_str = ListToString(_portalsUsedLocations);
 
-        float completion_ratio = 0;
-
         if (_playersStarted[_current_level - 1] == 0)
         {
             completion_ratio = 0;
         }
         else
         {
-            switch (_current_level)
+            if (_playersStarted[_current_level - 1] > 0)
             {
-                case 1:
-                    completion_ratio = (float)_playersCompleted[0] / _playersStarted[0];
-                    break;
-                case 2:
-                    completion_ratio = (float)_playersCompleted[1] / _playersStarted[1];
-                    break;
-                case 3:
-                    completion_ratio = (float)_playersCompleted[2] / _playersStarted[2];
-                    break;
-                case 4:
-                    completion_ratio = (float)_playersCompleted[3] / _playersStarted[3];
-                    break;
-                case 5:
-                    completion_ratio = (float)_playersCompleted[4] / _playersStarted[4];
-                    break;
-                default:
-                    Debug.LogError("Invalid level number.");
-                    break;
+                completion_ratio = (float)_playersCompleted[_current_level - 1] / _playersStarted[_current_level - 1] * 100;
             }
         }
-        completion_ratio *= 100;  // Convert to percentage if needed
         string completion_ratio_str = completion_ratio.ToString("0.00");
 
         StartCoroutine(Post(_playerID.ToString(), _die_of_enemy_1.ToString(),_die_of_enemy_2.ToString(), _die_of_enemy_3.ToString(), 
@@ -266,8 +247,6 @@ public class SendToGoogle : MonoBehaviour
         //Reset the values
         // _enemies_killed.Clear();
         // _portalsUsedLocations.Clear();
-        _playersStarted = new int[5];
-        _playersCompleted = new int[5];
         _enemies_killed = new List<Vector2>();
         _portalsUsedLocations = new List<Vector2>();
     }

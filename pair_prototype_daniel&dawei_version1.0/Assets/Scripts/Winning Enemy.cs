@@ -16,6 +16,7 @@ public class WinningEnemy : MonoBehaviour
     {
         googleForm = GameObject.Find("GoogleFormManager").GetComponent<SendToGoogle>();
         googleForm.PlayerStartedLevel(_current_level); //unsure where to put this
+        Debug.Log("Player started the level");
 //         winText.text = "";
     }
 
@@ -28,8 +29,9 @@ public class WinningEnemy : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision) {
         //winText.text = "You win!";
         OverlayController.instance.characterStatus = OverlayController.playerStatus.WIN;
-        googleForm.EnemiesKilled();
         googleForm.PlayerCompletedLevel(_current_level);
+        Debug.Log("Player completed the level");
+        googleForm.EnemiesKilled();
 
     }
 
