@@ -10,6 +10,7 @@ TagManager:
   - BluePortal
   - OrangePortal
   - GoldEnemy
+  - Zombie
   layers:
   - Default
   - TransparentFX

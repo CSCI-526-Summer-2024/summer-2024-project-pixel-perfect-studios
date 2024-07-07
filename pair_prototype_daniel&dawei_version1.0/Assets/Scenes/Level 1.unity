@@ -3547,7 +3547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6240388020363433030, guid: 43dae050e492c4d26b91f40498edcf4b, type: 3}
       propertyPath: m_Name
-      value: Civilian (1)
+      value: Zombie2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3788,12 +3788,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1808373033}
   m_Layer: 0
-  m_Name: Civiian
+  m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1808373033
 Transform:
   m_ObjectHideFlags: 0
@@ -3995,7 +3995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6240388020363433030, guid: 43dae050e492c4d26b91f40498edcf4b, type: 3}
       propertyPath: m_Name
-      value: Civilian
+      value: Zombie1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
