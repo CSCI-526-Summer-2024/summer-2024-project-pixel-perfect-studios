@@ -24,14 +24,6 @@ public class SendToGoogle : MonoBehaviour
     private int _die_of_no_bullet_4 = 0;
     private int _die_of_no_bullet_5 = 0;
 
-    // private int _bulletsUsedLevel1 = 0;
-    // private int _bulletsUsedLevel2 = 0;
-    // private int _bulletsUsedLevel3 = 0;
-    // private int _bulletsUsedLevel4 = 0;
-    // private int _bulletsUsedLevel5 = 0;
-
-    // private int bullets_used;
-
     private int[] _playersStarted = new int[5]; //hard-coded for 5 levels
     private int[] _playersCompleted = new int[5];
 
@@ -49,9 +41,9 @@ public class SendToGoogle : MonoBehaviour
     private void Awake()
     {
         _playerID = GetPlayerID();
-
         // Count the number of portals in the scene
         CountPortalsInScene();
+        LoadPlayerData();
     }
 
     private string GetPlayerID()
@@ -84,37 +76,31 @@ public class SendToGoogle : MonoBehaviour
         //
     }
 
-//     public void GetUsedBullets(int bulletsLeft, int maxBullets)
-// {
-//     int bulletsUsed = maxBullets - bulletsLeft;
-//     switch (_current_level)
-//     {
-//         case 1:
-//             _bulletsUsedLevel1 = bulletsUsed;
-//             break;
-//         case 2:
-//             _bulletsUsedLevel2 = bulletsUsed;
-//             break;
-//         case 3:
-//             _bulletsUsedLevel3 = bulletsUsed;
-//             break;
-//         case 4:
-//             _bulletsUsedLevel4 = bulletsUsed;
-//             break;
-//         case 5:
-//             _bulletsUsedLevel5 = bulletsUsed;
-//             break;
-//         default:
-//             Debug.LogError("Invalid level number.");
-//             break;
-//     }
-// }
+    private void LoadPlayerData()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            _playersStarted[i - 1] = PlayerPrefs.GetInt($"Level_{i}_Started", 0);
+            _playersCompleted[i - 1] = PlayerPrefs.GetInt($"Level_{i}_Completed", 0);
+        }
+    }
+
+    private void SavePlayerData()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            PlayerPrefs.SetInt($"Level_{i}_Started", _playersStarted[i - 1]);
+            PlayerPrefs.SetInt($"Level_{i}_Completed", _playersCompleted[i - 1]);
+        }
+        PlayerPrefs.Save();
+    }
 
     public void PlayerStartedLevel(int level)
     {
         if (level >= 1 && level <= 5)
         {
             _playersStarted[level - 1]++;
+            SavePlayerData();
         }
         else
         {
@@ -127,6 +113,7 @@ public class SendToGoogle : MonoBehaviour
         if (level >= 1 && level <= 5)
         {
             _playersCompleted[level - 1]++;
+            SavePlayerData();
         }
         else
         {
@@ -238,6 +225,8 @@ public class SendToGoogle : MonoBehaviour
             if (_playersStarted[_current_level - 1] > 0)
             {
                 completion_ratio = (float)_playersCompleted[_current_level - 1] / _playersStarted[_current_level - 1] * 100;
+                Debug.Log("Players Completed " + _playersCompleted[_current_level - 1]);
+                Debug.Log("Players Started " + _playersStarted[_current_level - 1]);
             }
         }
         string completion_ratio_str = completion_ratio.ToString("0.00");
@@ -268,31 +257,26 @@ public class SendToGoogle : MonoBehaviour
         {
             form.AddField("entry.1685270148", _die_of_enemy_1);
             form.AddField("entry.1012120333", _die_of_no_bullet_1);
-            //form.AddField("entry.1503822787", _bulletsUsedLevel1);
         }
         else if (_current_level == 2)
         {
             form.AddField("entry.1685270148", _die_of_enemy_2);
             form.AddField("entry.1012120333", _die_of_no_bullet_2);
-            //form.AddField("entry.1503822787", _bulletsUsedLevel2);
         }
         else if (_current_level == 3)
         {
             form.AddField("entry.1685270148", _die_of_enemy_3);
             form.AddField("entry.1012120333", _die_of_no_bullet_3);
-            //form.AddField("entry.1503822787", _bulletsUsedLevel3);
         }
         else if (_current_level == 4)
         {
             form.AddField("entry.1685270148", _die_of_enemy_4);
             form.AddField("entry.1012120333", _die_of_no_bullet_4);
-            //form.AddField("entry.1503822787", _bulletsUsedLevel4);
         }
         else if (_current_level == 5)
         {
             form.AddField("entry.1685270148", _die_of_enemy_5);
             form.AddField("entry.1012120333", _die_of_no_bullet_5);
-            //form.AddField("entry.1503822787", _bulletsUsedLevel5);
         }
         form.AddField("entry.425979302", _enemies_killed);
 

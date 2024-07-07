@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour
     {
         if (!_collision && collision.gameObject.name == "Character" && gameObject.tag != "GoldEnemy")
         {
-            //Debug.Log(transform.position); //Collect coordinate of collision
             _collision = true;
             Vector2 playerLocation = new Vector2(transform.position.x, transform.position.y);
             googleForm.DeathEnemy(playerLocation);

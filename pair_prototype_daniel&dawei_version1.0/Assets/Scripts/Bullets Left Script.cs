@@ -35,13 +35,11 @@ public class BulletManager : MonoBehaviour
             // Call the function to restart the game
             // Show Game Over Screen
             _no_bullet_check = true;
-            //googleForm.GetUsedBullets(currentBullets, maxBullets);
             googleForm.DeathBullet();
             Debug.Log("No Bullet Left!");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE;
         }
-        //googleForm.GetUsedBullets(currentBullets, maxBullets);
         
     }
 
