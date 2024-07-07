@@ -44,7 +44,6 @@ public class OverlayController : MonoBehaviour
         Gun.instance.allowShooting = false;
         Time.timeScale = 0;
         //isPaused = true;
-        // Optionally, disable player controls or other elements here
     }
 
     void ResumeGame()
@@ -52,7 +51,6 @@ public class OverlayController : MonoBehaviour
         Gun.instance.allowShooting = true;
         Time.timeScale = 1;
         //isPaused = false;
-        // Optionally, re-enable disabled controls or elements here
     }
 
 
