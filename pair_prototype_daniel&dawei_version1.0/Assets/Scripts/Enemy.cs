@@ -28,7 +28,8 @@ public class Enemy : MonoBehaviour
         {
             //Debug.Log(transform.position); //Collect coordinate of collision
             _collision = true;
-            googleForm.DeathEnemy();
+            Vector2 playerLocation = new Vector2(transform.position.x, transform.position.y);
+            googleForm.DeathEnemy(playerLocation);
             Debug.Log("Hit Enemy and Die!!");
             OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE;
         }
