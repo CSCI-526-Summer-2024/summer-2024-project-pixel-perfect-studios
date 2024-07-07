@@ -40,11 +40,11 @@ public class CameraOperations : MonoBehaviour
         }
         if (mainCamera != null && enableSwitch)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.C) && needFollow)
             {
                 UseMode1();
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            else if (Input.GetKeyDown(KeyCode.C) && !needFollow)
             {
                 UseMode2();
             }
