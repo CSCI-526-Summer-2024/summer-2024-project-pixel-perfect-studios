@@ -12,20 +12,13 @@ public class SendToGoogle : MonoBehaviour
 
     private string _playerID;
     
-    private int _die_of_enemy_1 = 0;
-    private int _die_of_enemy_2 = 0;
-    private int _die_of_enemy_3 = 0;
-    private int _die_of_enemy_4 = 0;
-    private int _die_of_enemy_5 = 0;
+    private int _die_of_enemy = 0;
 
-    private int _die_of_no_bullet_1 = 0;
-    private int _die_of_no_bullet_2 = 0;
-    private int _die_of_no_bullet_3 = 0;
-    private int _die_of_no_bullet_4 = 0;
-    private int _die_of_no_bullet_5 = 0;
+    private int _die_of_no_bullet = 0;
 
-    private int[] _playersStarted = new int[5]; //hard-coded for 5 levels
-    private int[] _playersCompleted = new int[5];
+
+    private int[] _playersStarted = new int[6]; //hard-coded for 6 levels
+    private int[] _playersCompleted = new int[6];
 
     private List<Vector2> _enemies_killed = new List<Vector2>();
 
@@ -78,7 +71,7 @@ public class SendToGoogle : MonoBehaviour
 
     private void LoadPlayerData()
     {
-        for (int i = 1; i <= 5; i++)
+        for (int i = 1; i <= 6; i++)
         {
             _playersStarted[i - 1] = PlayerPrefs.GetInt($"Level_{i}_Started", 0);
             _playersCompleted[i - 1] = PlayerPrefs.GetInt($"Level_{i}_Completed", 0);
@@ -87,7 +80,7 @@ public class SendToGoogle : MonoBehaviour
 
     private void SavePlayerData()
     {
-        for (int i = 1; i <= 5; i++)
+        for (int i = 1; i <= 6; i++)
         {
             PlayerPrefs.SetInt($"Level_{i}_Started", _playersStarted[i - 1]);
             PlayerPrefs.SetInt($"Level_{i}_Completed", _playersCompleted[i - 1]);
@@ -97,7 +90,7 @@ public class SendToGoogle : MonoBehaviour
 
     public void PlayerStartedLevel(int level)
     {
-        if (level >= 1 && level <= 5)
+        if (level >= 1 && level <= 6)
         {
             _playersStarted[level - 1]++;
             SavePlayerData();
@@ -110,7 +103,7 @@ public class SendToGoogle : MonoBehaviour
 
     public void PlayerCompletedLevel(int level)
     {
-        if (level >= 1 && level <= 5)
+        if (level >= 1 && level <= 6)
         {
             _playersCompleted[level - 1]++;
             SavePlayerData();
@@ -123,26 +116,7 @@ public class SendToGoogle : MonoBehaviour
 
     public void DeathEnemy(Vector2 playerPosition)
     {
-        if (_current_level == 1)
-        {
-            _die_of_enemy_1++;
-        }
-        else if (_current_level == 2)
-        {
-            _die_of_enemy_2++;
-        }
-        else if (_current_level == 3)
-        {
-            _die_of_enemy_3++;
-        }
-        else if (_current_level == 4)
-        {
-            _die_of_enemy_4++;
-        }
-        else if (_current_level == 5)
-        {
-            _die_of_enemy_5++;
-        }
+        _die_of_enemy++;
         player_death_location_by_enemy = playerPosition;
         Debug.Log("Send Enemy Death Data!");
         Send();
@@ -150,26 +124,7 @@ public class SendToGoogle : MonoBehaviour
 
     public void DeathBullet()
     {
-        if (_current_level == 1)
-        {
-            _die_of_no_bullet_1++;
-        }
-        else if (_current_level == 2)
-        {
-            _die_of_no_bullet_2++;
-        }
-        else if (_current_level == 3)
-        {
-            _die_of_no_bullet_3++;
-        }
-        else if (_current_level == 4)
-        {
-            _die_of_no_bullet_4++;
-        }
-        else if (_current_level == 5)
-        {
-            _die_of_no_bullet_5++;
-        }
+        _die_of_no_bullet++;
         Debug.Log("Send Bullet Data!");
         Send();
     }
@@ -233,9 +188,7 @@ public class SendToGoogle : MonoBehaviour
 
         string player_death_location_by_enemy_str = player_death_location_by_enemy.ToString();
 
-        StartCoroutine(Post(_playerID.ToString(), _die_of_enemy_1.ToString(),_die_of_enemy_2.ToString(), _die_of_enemy_3.ToString(), 
-            _die_of_enemy_4.ToString(), _die_of_enemy_5.ToString(), _die_of_no_bullet_1.ToString(), _die_of_no_bullet_2.ToString(),
-            _die_of_no_bullet_3.ToString(), _die_of_no_bullet_4.ToString(), _die_of_no_bullet_5.ToString(), _enemies_killed_str, 
+        StartCoroutine(Post(_playerID.ToString(), _die_of_enemy.ToString(), _die_of_no_bullet.ToString(), _enemies_killed_str, 
             _portalUsageRate.ToString(), portal_locations_str, completion_ratio_str, player_death_location_by_enemy_str));
         //Reset the values
         // _enemies_killed.Clear();
@@ -244,40 +197,17 @@ public class SendToGoogle : MonoBehaviour
         _portalsUsedLocations = new List<Vector2>();
     }
 
-    private IEnumerator Post(string playerID, string _die_of_enemy_1, string _die_of_enemy_2, string _die_of_enemy_3, 
-        string _die_of_enemy_4, string _die_of_enemy_5, string _die_of_no_bullet_1, string _die_of_no_bullet_2, 
-        string _die_of_no_bullet_3, string _die_of_no_bullet_4, string _die_of_no_bullet_5, string _enemies_killed, 
+    private IEnumerator Post(string playerID, string _die_of_enemy, string _die_of_no_bullet, string _enemies_killed, 
         string _portalUsageRate, string _portal_locations, string _completion_ratio, string _player_death_location_by_enemy)
     {
         WWWForm form = new WWWForm();
         //https://docs.google.com/forms/u/1/d/e/1FAIpQLSfel1Kq9fm8JetHvPYqWWsYKrl3gxc5ViDl-x2FY894ZfNpKA/formResponse
         form.AddField("entry.1449005772", playerID);
         form.AddField("entry.1490287160", _current_level);
-        if (_current_level == 1)
-        {
-            form.AddField("entry.1685270148", _die_of_enemy_1);
-            form.AddField("entry.1012120333", _die_of_no_bullet_1);
-        }
-        else if (_current_level == 2)
-        {
-            form.AddField("entry.1685270148", _die_of_enemy_2);
-            form.AddField("entry.1012120333", _die_of_no_bullet_2);
-        }
-        else if (_current_level == 3)
-        {
-            form.AddField("entry.1685270148", _die_of_enemy_3);
-            form.AddField("entry.1012120333", _die_of_no_bullet_3);
-        }
-        else if (_current_level == 4)
-        {
-            form.AddField("entry.1685270148", _die_of_enemy_4);
-            form.AddField("entry.1012120333", _die_of_no_bullet_4);
-        }
-        else if (_current_level == 5)
-        {
-            form.AddField("entry.1685270148", _die_of_enemy_5);
-            form.AddField("entry.1012120333", _die_of_no_bullet_5);
-        }
+
+        form.AddField("entry.1685270148", _die_of_enemy);
+        form.AddField("entry.1012120333", _die_of_no_bullet);
+    
         form.AddField("entry.425979302", _enemies_killed);
 
         form.AddField("entry.1876543593", _player_death_location_by_enemy);
