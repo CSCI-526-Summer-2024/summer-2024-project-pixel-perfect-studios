@@ -17,6 +17,23 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void ResetLevel()
+    {
+        /*
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        
+        int currentSceneIndex = System.Array.IndexOf(levels, currentSceneName);
+
+        if (currentSceneIndex >= 0 && currentSceneIndex < levels.Length - 1)
+        {
+            SceneManager.LoadScene(levels[currentSceneIndex + 1]);
+        }
+        else
+        {
+            Debug.LogWarning("No more levels to load, or current level not found in levels array.");
+        }*/
+        SceneManager.LoadScene(levels[currentLevelIndex]);
+    }
     public void backToMainMenu()
     {
         SceneManager.LoadScene("Main Menu");
