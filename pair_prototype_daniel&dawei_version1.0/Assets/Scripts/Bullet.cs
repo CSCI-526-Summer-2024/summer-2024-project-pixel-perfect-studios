@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     private Gun gun;
 
     public int ricochetInt = 10;
+    public int advancedBulletRichochet = 3;
     public GameObject character;
     public float delayBeforeDespawn = 15f;
 
@@ -49,7 +50,16 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             collision.gameObject.GetComponent<Portal>().PortalJump();
 
-        } 
+        }
+        else if (collision.gameObject.tag == "Zombie") {
+            // If collision with Zombie tag object, then activate the full trajectory
+            // Destroy the Bullet
+            Destroy(collision.gameObject);
+            gun.fullTrajectory = true;
+            gun.advancedBullet = 1;
+            StartCoroutine(DestroyBulletAfterDelay(0.02f));
+            Debug.Log("Hit a zombie");
+        }
         else {
             hitCount++;
             float sphereRadius = 0.3f;
@@ -65,7 +75,11 @@ public class Bullet : MonoBehaviour
             rb.velocity = direction * speed;
         }
 
-        if (hitCount == ricochetInt)
+        if (hitCount == ricochetInt && gun.fullTrajectory == false)
+        {
+            StartCoroutine(DestroyBulletAfterDelay(0.02f));
+        }
+        else if (hitCount == advancedBulletRichochet && gun.fullTrajectory == true)
         {
             StartCoroutine(DestroyBulletAfterDelay(0.02f));
         }
