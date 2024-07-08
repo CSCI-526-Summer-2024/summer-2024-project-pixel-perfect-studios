@@ -16,7 +16,10 @@ public class CameraVer2 : MonoBehaviour
     public Boolean biggerPlayerView = false;
     private Boolean allowedChange = true;
     private Boolean needFollowPlayer = true;
-    //public float cameraSize = 32.7847f;
+    private Boolean duringMoving = true;
+    public float slowerSmoothSpeed;
+    public float thresholdDistance;
+    public float cameraSize = 32.7847f;
     Vector2 MousePos
     {
         get
@@ -33,8 +36,8 @@ public class CameraVer2 : MonoBehaviour
             //Debug.Log(cam.orthographicSize);
             size = new float[2];
             //Debug.Log(size);
-            size[0] = cam.orthographicSize;
-            //size[0] = cameraSize;
+            //size[0] = cam.orthographicSize;
+            size[0] = cameraSize;
             size[1] = bulletShootCameraSize;
             //Debug.Log(size[0]);
         }
@@ -91,14 +94,14 @@ public class CameraVer2 : MonoBehaviour
         Vector2 mousePos = MousePos;
         Vector3 desiredPosition;
         //if (biggerPlayerView && allowedChange)
-        if (biggerPlayerView)
+        if (biggerPlayerView && !duringMoving)
         {
             //allowedChange = false;
             //StartCoroutine(ChangeOrthographicSize(size[0] + 50f));
             cam.orthographicSize = size[0] + 50f;
         }
         //else if(!biggerPlayerView && allowedChange)
-        else if(!biggerPlayerView)
+        else if(!biggerPlayerView && !duringMoving)
         {
             //allowedChange = false;
             //StartCoroutine(ChangeOrthographicSize(size[0]));
@@ -127,7 +130,19 @@ public class CameraVer2 : MonoBehaviour
         */
         //Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
         desiredPosition = new Vector3(playerPos.x, playerPos.y, transform.position.z);
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        Vector3 smoothedPosition;
+        Debug.Log("Lower Speed:" + duringMoving);
+        if(duringMoving){
+            smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, slowerSmoothSpeed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, desiredPosition) < thresholdDistance)
+            {
+                duringMoving = false;
+            }
+            //lowerSpeed = false;
+        }else{
+            smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        }
+        
         transform.position = smoothedPosition;
     }
 
