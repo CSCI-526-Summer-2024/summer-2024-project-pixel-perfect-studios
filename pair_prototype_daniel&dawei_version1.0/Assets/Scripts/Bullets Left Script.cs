@@ -38,7 +38,7 @@ public class BulletManager : MonoBehaviour
             googleForm.DeathBullet();
             Debug.Log("No Bullet Left!");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE;
+            OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE_BY_BULLET;
         }
         
     }

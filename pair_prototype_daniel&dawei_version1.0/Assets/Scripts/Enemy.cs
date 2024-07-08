@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
             Vector2 playerLocation = new Vector2(transform.position.x, transform.position.y);
             googleForm.DeathEnemy(playerLocation);
             Debug.Log("Hit Enemy and Die!!");
-            OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE;
+            OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE_BY_HIT;
         }
     }
 }

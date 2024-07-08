@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class OverlayController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject GameOverDialog;
+    private GameObject GameOverHitDialog;
+    [SerializeField]
+    private GameObject GameOverBulletDialog;
 
     [SerializeField]
     private GameObject InGameMenuDialog;
@@ -21,7 +23,8 @@ public class OverlayController : MonoBehaviour
     {
         PLAY,
         WIN,
-        LOSE
+        LOSE_BY_HIT,
+        LOSE_BY_BULLET
     }
     overlayStatus gameStatus = overlayStatus.GAMING;
     public playerStatus characterStatus = playerStatus.PLAY;
@@ -77,9 +80,14 @@ public class OverlayController : MonoBehaviour
                 ResumeGame();
             }
         }
-        if(characterStatus == playerStatus.LOSE){   // Todo: a boolean variable determine whether character die or not
+        if(characterStatus == playerStatus.LOSE_BY_HIT){   // Todo: a boolean variable determine whether character die or not
             Gun.instance.allowShooting = false;
-            GameOverDialog.SetActive(true);
+            GameOverHitDialog.SetActive(true);
+            PauseGame();
+        }
+        if(characterStatus == playerStatus.LOSE_BY_BULLET){   // Todo: a boolean variable determine whether character die or not
+            Gun.instance.allowShooting = false;
+            GameOverBulletDialog.SetActive(true);
             PauseGame();
         }
         if(characterStatus == playerStatus.WIN){
