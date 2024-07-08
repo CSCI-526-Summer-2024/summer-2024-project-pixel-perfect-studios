@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveSpeed: 4
-  minWaveSpeed: 0.5
-  maxWaveSpeed: 2
+  minWaveSpeed: 1
+  maxWaveSpeed: 3
   waveAngle: 45
 --- !u!1 &6240388020363433030
 GameObject:
@@ -183,8 +183,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.3
-  m_Material: {fileID: 6200000, guid: ac2d5a6da07ff458f9bdc68bd015afdc, type: 2}
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: 4224a663208bd47fc9774363f1ced42b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
