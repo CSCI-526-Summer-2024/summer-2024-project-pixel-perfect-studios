@@ -428,6 +428,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4316554446958764829, guid: 4388ed79ec4624dc083a9f913a6bb541, type: 3}
   shootPoint: {fileID: 6744420453497024288}
   bulletsLeft: 20
+  advancedBullet: 0
   bullet: {fileID: 0}
   lineRenderer: {fileID: 2000161172141065032}
   timeStep: 0.1
@@ -435,6 +436,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   armPosition: {fileID: 5632477172499768963}
+  allowShooting: 1
+  fullTrajectory: 0
 --- !u!1 &7662280660087975586
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ public class Bullet : MonoBehaviour
             // Destroy the Bullet
             Destroy(collision.gameObject);
             gun.fullTrajectory = true;
-            gun.advancedBullet = 1;
+            gun.advancedBullet = 5;
             StartCoroutine(DestroyBulletAfterDelay(0.02f));
             Debug.Log("Hit a zombie");
         }
