@@ -22,6 +22,7 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab; // Assign the Bullet prefab in the Inspector
     public Transform shootPoint; // The point from where the bullet will be shot
     public int bulletsLeft = 20;
+    public int advancedBullet = 0;
     public GameObject bullet = null;
 
     public LineRenderer lineRenderer; // NEW
@@ -31,6 +32,8 @@ public class Gun : MonoBehaviour
     public Transform armPosition; // The point of arm
     public static Gun instance;
     public Boolean allowShooting = true;
+
+    public Boolean fullTrajectory = false;
 
     private List<TrajectorySegment> trajectorySegments = new List<TrajectorySegment>();
     
@@ -59,10 +62,20 @@ public class Gun : MonoBehaviour
             
         // }
         
-        if (Input.GetMouseButtonDown(0) && (bulletsLeft > 0) && (bullet == null) && allowShooting) // Detect mouse click
+        if (Input.GetMouseButtonDown(0) && (fullTrajectory == false) && (bulletsLeft > 0) && (bullet == null) && allowShooting) // Detect mouse click
         { 
             Shoot(direction);
             bulletsLeft--;
+        }
+        else if (Input.GetMouseButtonDown(0) && (fullTrajectory == true) && (advancedBullet > 0) && (bullet == null) && allowShooting) // Detect mouse click
+        {
+            Shoot(direction);
+            advancedBullet--;
+        }
+        
+        if ((advancedBullet == 0) && (bullet == null))
+        {
+            fullTrajectory = false;
         }
 
         if (bullet != null) {
@@ -98,8 +111,16 @@ public class Gun : MonoBehaviour
         trajectorySegments.Clear();
         Vector2 currentPosition = startPosition;
         float sphereRadius = 0.3f;
+        
+        int maxBounce = 1;
+        if (fullTrajectory == true && advancedBullet > 0)
+        {
+            maxBounce = 3;
+            Debug.Log(advancedBullet); 
+            Debug.Log("Full Trajectory"); 
+        }
 
-        for (int bounces = 0; bounces < 2; bounces++)
+        for (int bounces = 0; bounces < maxBounce; bounces++)
         {
             RaycastHit2D hit = Physics2D.CircleCast(currentPosition, sphereRadius, direction, Mathf.Infinity, raycastMask);
             float distance = 1000f;
