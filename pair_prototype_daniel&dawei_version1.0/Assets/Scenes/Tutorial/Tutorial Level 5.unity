@@ -541,11 +541,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6478664680324638058, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.39
+      value: 75.7
       objectReference: {fileID: 0}
     - target: {fileID: 6478664680324638058, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 83.72
+      value: 82.8
       objectReference: {fileID: 0}
     - target: {fileID: 6478664680324638058, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -782,7 +782,7 @@ Transform:
   m_GameObject: {fileID: 272097704}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 81.6, y: 99.2397, z: 0}
+  m_LocalPosition: {x: 80.2, y: 98.6, z: 0}
   m_LocalScale: {x: 1, y: 22.089437, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1340,11 +1340,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3248971143505881232, guid: 43dae050e492c4d26b91f40498edcf4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 83
+      value: 83.4
       objectReference: {fileID: 0}
     - target: {fileID: 3248971143505881232, guid: 43dae050e492c4d26b91f40498edcf4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 83.3
+      value: 82.4
       objectReference: {fileID: 0}
     - target: {fileID: 3248971143505881232, guid: 43dae050e492c4d26b91f40498edcf4b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1883,7 +1883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -550.4, y: -527.7}
+  m_AnchoredPosition: {x: -572, y: -527.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516907352
@@ -1906,7 +1906,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kill a ZOMBIE to power up 5 bullets
+  m_text: shoot it
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2101,6 +2101,7 @@ MonoBehaviour:
   enableSwitch: 1
   moreFocus: 0
   moreFocusSize: 20
+  beginWithFocus: 0
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2119,6 +2120,9 @@ MonoBehaviour:
   smoothSpeed: 1
   bulletShootCameraSize: 0
   biggerPlayerView: 0
+  slowerSmoothSpeed: 0
+  thresholdDistance: 0
+  cameraSize: 32.7847
 --- !u!1 &704509837
 GameObject:
   m_ObjectHideFlags: 0
