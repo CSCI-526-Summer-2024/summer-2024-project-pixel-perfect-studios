@@ -2031,6 +2031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42cabf4392e5490da93e4e975619453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HUDCanvas: {fileID: 1149145985}
   size: []
   offset: {x: 0, y: 0, z: 0}
   player: {fileID: 1632965075}
@@ -4176,6 +4177,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3259a3031e97142f2be1fff4cee85a60, type: 3}
+--- !u!1 &1149145985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7134315075982385498, guid: 3259a3031e97142f2be1fff4cee85a60, type: 3}
+  m_PrefabInstance: {fileID: 1149145984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1184150079
 GameObject:
   m_ObjectHideFlags: 0

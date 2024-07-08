@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CameraOperations : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject HUDCanvas;
     public float[] size;
     // private float[] size = {34f, 26.41f};
     public Vector3 offset;
@@ -51,10 +53,12 @@ public class CameraOperations : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.C) && needFollow)
             {
+                HUDCanvas.SetActive(true);
                 UseMode1();
             }
             else if (Input.GetKeyDown(KeyCode.C) && !needFollow)
             {
+                HUDCanvas.SetActive(false);
                 UseMode2();
             }
         }
