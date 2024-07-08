@@ -2101,6 +2101,7 @@ MonoBehaviour:
   enableSwitch: 1
   moreFocus: 0
   moreFocusSize: 20
+  beginWithFocus: 0
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2119,6 +2120,9 @@ MonoBehaviour:
   smoothSpeed: 1
   bulletShootCameraSize: 0
   biggerPlayerView: 0
+  slowerSmoothSpeed: 0
+  thresholdDistance: 0
+  cameraSize: 32.7847
 --- !u!1 &704509837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,7 +2334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a9e121300e5443f48b29302714f4371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 6
+  levelIndex: 7
 --- !u!4 &887648234
 Transform:
   m_ObjectHideFlags: 0

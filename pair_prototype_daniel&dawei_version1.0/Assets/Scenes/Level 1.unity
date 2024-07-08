@@ -827,7 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a9e121300e5443f48b29302714f4371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 7
+  levelIndex: 8
 --- !u!4 &453031802
 Transform:
   m_ObjectHideFlags: 0
@@ -960,6 +960,7 @@ MonoBehaviour:
   enableSwitch: 1
   moreFocus: 0
   moreFocusSize: 20
+  beginWithFocus: 0
 --- !u!1001 &598320208
 PrefabInstance:
   m_ObjectHideFlags: 0
