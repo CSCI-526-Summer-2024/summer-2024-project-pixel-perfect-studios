@@ -36,13 +36,15 @@ public class Portal : MonoBehaviour {
                     nearestPortal = portal;
                 }
             }
+            Debug.Log("This is the position of the portal: " + transform.position);
+            Debug.Log("This is the position of nearest portal: " + nearestPortal.transform.position);
 
             nearestPortalPosition = nearestPortal.transform.position;
+            googleForm.TrackPortalUse(transform.position, nearestPortalPosition);
             Destroy(nearestPortal);
             // googleForm.TrackPortalUse(nearestPortalPosition);
             character.transform.position = nearestPortalPosition;
             Destroy(gameObject);
-            googleForm?.TrackPortalUse(transform.position);
         }
         if (gameObject.tag == "OrangePortal") {
             GameObject[] portals = GameObject.FindGameObjectsWithTag("BluePortal");
@@ -57,12 +59,15 @@ public class Portal : MonoBehaviour {
                     nearestPortal = portal;
                 }
             }
+            Debug.Log("This is the position of the portal: " + transform.position);
+            Debug.Log("This is the position of nearest portal: " + nearestPortal.transform.position);
+
             nearestPortalPosition = nearestPortal.transform.position;
+            googleForm.TrackPortalUse(transform.position, nearestPortalPosition);
             Destroy(nearestPortal);
             // googleForm.TrackPortalUse(nearestPortalPosition);
             character.transform.position = nearestPortalPosition;
             Destroy(gameObject);
-            googleForm.TrackPortalUse(transform.position);
         }
     }
 }

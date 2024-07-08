@@ -28,6 +28,9 @@ public class Gun : MonoBehaviour
     public LineRenderer lineRenderer; // NEW
     public float timeStep = 0.1f; // NEW
 
+    private Color color1 = Color.red;
+    private Color color2 = Color.yellow;
+
     public LayerMask raycastMask;
     public Transform armPosition; // The point of arm
     public static Gun instance;
@@ -57,10 +60,17 @@ public class Gun : MonoBehaviour
     {
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - armPosition.position; // NEW
         UpdateTrajectory(armPosition.position, direction); // NEW
-        // if (Input.GetKey(KeyCode.T)) // Check if the "T" key is pressed
-        // {
-            
-        // }
+        if (Input.GetKey(KeyCode.T)) // Check if the "T" key is pressed. Use to
+        {
+            fullTrajectory = true;
+            advancedBullet = 1;
+        }
+        
+        if (Input.GetKey(KeyCode.P)) // Check if the "T" key is pressed. Use to
+        {
+            fullTrajectory = false;
+            advancedBullet = 0;
+        }
         
         if (Input.GetMouseButtonDown(0) && (fullTrajectory == false) && (bulletsLeft > 0) && (bullet == null) && allowShooting) // Detect mouse click
         { 
@@ -83,7 +93,6 @@ public class Gun : MonoBehaviour
         } else {
             lineRenderer.enabled = true;
         }
-
     }
 
     public void Shoot(Vector2 direction)
@@ -115,9 +124,16 @@ public class Gun : MonoBehaviour
         int maxBounce = 1;
         if (fullTrajectory == true && advancedBullet > 0)
         {
-            maxBounce = 3;
+            maxBounce = 5;
             Debug.Log(advancedBullet); 
             Debug.Log("Full Trajectory"); 
+            lineRenderer.startColor = color2;
+            lineRenderer.endColor = color2;
+        }
+        else
+        {
+            lineRenderer.startColor = color1;
+            lineRenderer.endColor = color1;
         }
 
         for (int bounces = 0; bounces < maxBounce; bounces++)
@@ -130,7 +146,7 @@ public class Gun : MonoBehaviour
 
             if (hit.collider != null)
             {
-                Debug.Log(hit.collider.tag);
+                //Debug.Log(hit.collider.tag);
                 distance = hit.distance;
                 int maxPoints = Mathf.CeilToInt(distance / 0.2f);
                 trajectorySegments.Add(new TrajectorySegment(currentPosition, direction, maxPoints));
