@@ -427,7 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4316554446958764829, guid: 4388ed79ec4624dc083a9f913a6bb541, type: 3}
   shootPoint: {fileID: 6744420453497024288}
-  bulletsLeft: 4
+  bulletsLeft: 10
   advancedBullet: 0
   bullet: {fileID: 0}
   lineRenderer: {fileID: 2000161172141065032}
