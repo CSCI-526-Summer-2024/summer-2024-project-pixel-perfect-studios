@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press 2' to zoom in, press '1' to zoom back out
+  m_text: Press 'C' to toggle Camera
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1448,8 +1448,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.4
-  m_fontSizeBase: 0.4
+  m_fontSize: 0.99
+  m_fontSizeBase: 0.99
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1484,7 +1484,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 133.8065, w: 44.67444}
+  m_margin: {x: 0, y: 0, z: 185.84698, w: 48.745796}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1609,8 +1609,12 @@ MonoBehaviour:
   player: {fileID: 1929040530}
   leftRegionX: 100
   rightRegionX: 120
+  leftRegionY: 94
+  rightRegionY: 94.4
   smoothSpeed: 50
   enableSwitch: 1
+  moreFocus: 0
+  moreFocusSize: 20
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0

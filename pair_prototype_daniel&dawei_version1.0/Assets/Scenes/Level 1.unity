@@ -951,8 +951,10 @@ MonoBehaviour:
   size: []
   offset: {x: 0, y: 0, z: 0}
   player: {fileID: 2042958883}
-  leftRegionX: 10
+  leftRegionX: 114
   rightRegionX: 135
+  leftRegionY: 72.5
+  rightRegionY: 91.5
   smoothSpeed: 50
   enableSwitch: 1
 --- !u!1001 &598320208

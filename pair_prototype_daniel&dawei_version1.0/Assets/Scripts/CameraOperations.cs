@@ -11,11 +11,15 @@ public class CameraOperations : MonoBehaviour
     public Transform player;
     public float leftRegionX;
     public float rightRegionX;
+    public float leftRegionY;
+    public float rightRegionY;
     private Camera mainCamera;
     private bool needFollow = false;
     private Vector3 initialPosition; // Camera's init pos
     public float smoothSpeed;
     public Boolean enableSwitch = true;
+    public Boolean moreFocus = false;
+    public float moreFocusSize = 20;
 
     void Start()
     {
@@ -25,7 +29,12 @@ public class CameraOperations : MonoBehaviour
             size = new float[2];
             Debug.Log(size);
             size[0] = mainCamera.orthographicSize;
-            size[1] = size[0] - 8f;
+            if(moreFocus){
+                size[1] = size[0] - moreFocusSize;
+            }else{
+                size[1] = size[0] - 8f;
+            }
+            
             Debug.Log(size[0]);
         }
         initialPosition = transform.position;
@@ -67,13 +76,16 @@ public class CameraOperations : MonoBehaviour
         if (player != null)
         {
             float newXPosition = player.position.x + offset.x;
+            float newYPosition = player.position.y + offset.y;
             
             // make sure camera is in a fixed amount of range
             newXPosition = Mathf.Clamp(newXPosition, leftRegionX, rightRegionX);
+            newYPosition = Mathf.Clamp(newYPosition, leftRegionY, rightRegionY);
             
             // only update x coordinates
             Vector3 newPosition = transform.position;
             newPosition.x = newXPosition;
+            newPosition.y = newYPosition;
             //transform.position = newPosition;
             transform.position = Vector3.Lerp(transform.position, newPosition, smoothSpeed * Time.deltaTime);
         }
