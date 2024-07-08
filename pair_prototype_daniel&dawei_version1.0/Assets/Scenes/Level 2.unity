@@ -4293,13 +4293,14 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   player: {fileID: 1519778633}
   leftRegionX: 46
-  rightRegionX: 55
-  leftRegionY: -3.5
-  rightRegionY: 1.7
+  rightRegionX: 64.5
+  leftRegionY: -9.27
+  rightRegionY: 5.49
   smoothSpeed: 50
   enableSwitch: 1
   moreFocus: 0
   moreFocusSize: 20
+  beginWithFocus: 0
 --- !u!1 &1095405259
 GameObject:
   m_ObjectHideFlags: 0

@@ -1494,6 +1494,7 @@ MonoBehaviour:
   enableSwitch: 1
   moreFocus: 0
   moreFocusSize: 20
+  beginWithFocus: 0
 --- !u!1 &738680788
 GameObject:
   m_ObjectHideFlags: 0
@@ -2591,7 +2592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1462202907
 RectTransform:
   m_ObjectHideFlags: 0

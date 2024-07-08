@@ -16,12 +16,14 @@ public class CameraOperations : MonoBehaviour
     public float leftRegionY;
     public float rightRegionY;
     private Camera mainCamera;
+    //[SerializeField]
     private bool needFollow = false;
     private Vector3 initialPosition; // Camera's init pos
     public float smoothSpeed;
     public Boolean enableSwitch = true;
     public Boolean moreFocus = false;
     public float moreFocusSize = 20;
+    public Boolean beginWithFocus = false;
 
     void Start()
     {
@@ -40,12 +42,18 @@ public class CameraOperations : MonoBehaviour
             Debug.Log(size[0]);
         }
         initialPosition = transform.position;
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(beginWithFocus){
+            HUDCanvas.SetActive(false);
+            UseMode2();
+            beginWithFocus = false;
+        }
         if(needFollow){
             followPlayer();
         }

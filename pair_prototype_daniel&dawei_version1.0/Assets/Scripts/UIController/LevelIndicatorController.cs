@@ -9,7 +9,8 @@ public class LevelIndicatorController : MonoBehaviour
     private float startTime;
     private float timer;
     void Start()
-    {
+    {   
+        PauseGame();
         
         // Show the level indicator
         levelIndicatorCanvas.SetActive(true);

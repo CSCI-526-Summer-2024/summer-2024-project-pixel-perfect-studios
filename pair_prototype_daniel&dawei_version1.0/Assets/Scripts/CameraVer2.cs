@@ -16,6 +16,10 @@ public class CameraVer2 : MonoBehaviour
     public Boolean biggerPlayerView = false;
     private Boolean allowedChange = true;
     private Boolean needFollowPlayer = true;
+    private Boolean duringMoving = true;
+    public float slowerSmoothSpeed;
+    public float thresholdDistance;
+    public float cameraSize = 32.7847f;
     Vector2 MousePos
     {
         get
@@ -29,12 +33,13 @@ public class CameraVer2 : MonoBehaviour
     {
         cam = Camera.main;
         if(cam != null){
-            Debug.Log(cam.orthographicSize);
+            //Debug.Log(cam.orthographicSize);
             size = new float[2];
-            Debug.Log(size);
-            size[0] = cam.orthographicSize;
+            //Debug.Log(size);
+            //size[0] = cam.orthographicSize;
+            size[0] = cameraSize;
             size[1] = bulletShootCameraSize;
-            Debug.Log(size[0]);
+            //Debug.Log(size[0]);
         }
     }
     void Awake()
@@ -44,6 +49,7 @@ public class CameraVer2 : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Allowed_Change:" + allowedChange);
         //Debug.Log(Gun.instance.bullet);
         if(Gun.instance.bullet == null){ // true will be replaced by a boolean
             needFollowPlayer = true;
@@ -57,11 +63,13 @@ public class CameraVer2 : MonoBehaviour
             StartCoroutine(ChangeOrthographicSize(size[1]));
             */
         }
-        if (Input.GetKeyDown(KeyCode.C) && allowedChange && biggerPlayerView)
+        //if (Input.GetKeyDown(KeyCode.C) && allowedChange && biggerPlayerView)
+        if (Input.GetKeyDown(KeyCode.C) && biggerPlayerView)
         {
             biggerPlayerView = false;
         }
-        else if (Input.GetKeyDown(KeyCode.C) && allowedChange && !biggerPlayerView)
+        //else if (Input.GetKeyDown(KeyCode.C) && allowedChange && !biggerPlayerView)
+        else if (Input.GetKeyDown(KeyCode.C) && !biggerPlayerView)
         {
             biggerPlayerView = true;
         }
@@ -74,7 +82,8 @@ public class CameraVer2 : MonoBehaviour
         }else{
             FollowBullet();
             allowedChange = false;
-            StartCoroutine(ChangeOrthographicSize(size[1]));
+            //StartCoroutine(ChangeOrthographicSize(size[1]));
+            cam.orthographicSize = size[1];
         }
 
     }
@@ -84,17 +93,21 @@ public class CameraVer2 : MonoBehaviour
         Vector2 playerPos = player.position;
         Vector2 mousePos = MousePos;
         Vector3 desiredPosition;
-        if (biggerPlayerView && allowedChange)
+        //if (biggerPlayerView && allowedChange)
+        if (biggerPlayerView && !duringMoving)
         {
-            allowedChange = false;
-            StartCoroutine(ChangeOrthographicSize(size[0] + 50f));
-            //cam.orthographicSize = size[0] + 20f;
+            //allowedChange = false;
+            //StartCoroutine(ChangeOrthographicSize(size[0] + 50f));
+            cam.orthographicSize = size[0] + 50f;
         }
-        else if(!biggerPlayerView && allowedChange)
+        //else if(!biggerPlayerView && allowedChange)
+        else if(!biggerPlayerView && !duringMoving)
         {
-            allowedChange = false;
-            StartCoroutine(ChangeOrthographicSize(size[0]));
+            //allowedChange = false;
+            //StartCoroutine(ChangeOrthographicSize(size[0]));
+            cam.orthographicSize = size[0];
         }
+        /*
         // Judge the mosue's relative position
         if (mousePos.x > playerPos.x) // Mosue is at right of the character
         {
@@ -114,8 +127,22 @@ public class CameraVer2 : MonoBehaviour
                 desiredPosition = new Vector3(playerPos.x - offsetAmountX, playerPos.y - offsetAmountY, transform.position.z);
             }
         }
-
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        */
+        //Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        desiredPosition = new Vector3(playerPos.x, playerPos.y, transform.position.z);
+        Vector3 smoothedPosition;
+        Debug.Log("Lower Speed:" + duringMoving);
+        if(duringMoving){
+            smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, slowerSmoothSpeed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, desiredPosition) < thresholdDistance)
+            {
+                duringMoving = false;
+            }
+            //lowerSpeed = false;
+        }else{
+            smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        }
+        
         transform.position = smoothedPosition;
     }
 
@@ -129,6 +156,8 @@ public class CameraVer2 : MonoBehaviour
         transform.position = smoothedPosition;
     }
 
+
+/*
     IEnumerator ChangeOrthographicSize(float targetSize)
     {
         while (Mathf.Abs(cam.orthographicSize - targetSize) > 0.01f)
@@ -139,5 +168,5 @@ public class CameraVer2 : MonoBehaviour
         cam.orthographicSize = targetSize;
         allowedChange = true;
     }
-    
+*/
 }
