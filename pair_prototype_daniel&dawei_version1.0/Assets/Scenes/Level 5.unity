@@ -4836,7 +4836,7 @@ MonoBehaviour:
   biggerPlayerView: 0
   slowerSmoothSpeed: 1.57
   thresholdDistance: 20.4
-  cameraSize: 32.7847
+  cameraSize: 40.7
 --- !u!1 &716638300
 GameObject:
   m_ObjectHideFlags: 0
