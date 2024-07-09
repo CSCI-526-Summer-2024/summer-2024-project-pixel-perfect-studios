@@ -18,8 +18,11 @@ public class Bullet : MonoBehaviour
     public GameObject character;
     public float delayBeforeDespawn = 15f;
 
+    private SendToGoogle googleForm;
+
     void Start() {
         Destroy(gameObject, delayBeforeDespawn);
+        googleForm = GameObject.Find("GoogleFormManager").GetComponent<SendToGoogle>();
     }
 
     void Awake()
@@ -54,7 +57,7 @@ public class Bullet : MonoBehaviour
         else if (collision.gameObject.tag == "Zombie") {
             // If collision with Zombie tag object, then activate the full trajectory
             // Destroy the Bullet
-            AddZombiesKilled(transform.position);
+            googleForm.AddZombiesKilled(transform.position);
             Destroy(collision.gameObject);
             gun.fullTrajectory = true;
             gun.advancedBullet = 5;

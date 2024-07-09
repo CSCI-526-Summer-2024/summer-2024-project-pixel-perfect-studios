@@ -22,7 +22,7 @@ public class SendToGoogle : MonoBehaviour
 
     private List<Vector2> _enemies_killed = new List<Vector2>();
 
-    private List{Vector2} _zombies_killed = new List<Vector2>();
+    private List<Vector2> _zombies_killed = new List<Vector2>();
 
     private List<Vector2> _portalsUsedLocations = new List<Vector2>();
 
