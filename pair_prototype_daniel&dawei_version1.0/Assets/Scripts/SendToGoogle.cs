@@ -22,7 +22,7 @@ public class SendToGoogle : MonoBehaviour
 
     private List<Vector2> _enemies_killed = new List<Vector2>();
 
-    private List<Vector2> _zombies_killed = new List<Vector2>();
+    private List<String> _zombies_killed = new List<String>();
 
     private List<Vector2> _portalsUsedLocations = new List<Vector2>();
 
@@ -152,9 +152,9 @@ public class SendToGoogle : MonoBehaviour
         _enemies_killed.Add(enemy_position);
     }
 
-    public void AddZombiesKilled(Vector2 zombie_position)
+    public void AddZombiesKilled(String zombie_name)
     {
-        _zombies_killed.Add(zombie_position);
+        _zombies_killed.Add(zombie_name);
     }
 
     public void EnemiesKilled()
@@ -192,7 +192,9 @@ public class SendToGoogle : MonoBehaviour
 
         string _enemies_killed_str = ListToString(_enemies_killed);
 
-        string _zombies_killed_str = ListToString(_zombies_killed);
+        // string _zombies_killed_str = ListToString(_zombies_killed);
+        string _zombies_killed_str = string.Join(", ", _zombies_killed);
+
 
         float _portalUsageRate;
 
@@ -233,7 +235,7 @@ public class SendToGoogle : MonoBehaviour
         // _enemies_killed.Clear();
         // _portalsUsedLocations.Clear();
         _enemies_killed = new List<Vector2>();
-        _zombies_killed = new List<Vector2>();
+        _zombies_killed = new List<String>();
         _portalsUsedLocations = new List<Vector2>();
         _portalsLocationsAfter = new List<Vector2>();
         _playerLocation = new List<Vector2>();

@@ -57,7 +57,7 @@ public class Bullet : MonoBehaviour
         else if (collision.gameObject.tag == "Zombie") {
             // If collision with Zombie tag object, then activate the full trajectory
             // Destroy the Bullet
-            googleForm.AddZombiesKilled(transform.position);
+            googleForm.AddZombiesKilled(collision.gameObject.name);
             Destroy(collision.gameObject);
             gun.fullTrajectory = true;
             gun.advancedBullet = 5;
