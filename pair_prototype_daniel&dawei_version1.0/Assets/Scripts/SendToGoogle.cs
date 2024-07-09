@@ -22,6 +22,8 @@ public class SendToGoogle : MonoBehaviour
 
     private List<Vector2> _enemies_killed = new List<Vector2>();
 
+    private List<Vector2> _zombies_killed = new List<Vector2>();
+
     private List<Vector2> _portalsUsedLocations = new List<Vector2>();
 
     private List<Vector2> _portalsLocationsAfter = new List<Vector2>();
@@ -150,9 +152,23 @@ public class SendToGoogle : MonoBehaviour
         _enemies_killed.Add(enemy_position);
     }
 
+    public void AddZombiesKilled(Vector2 zombie_position)
+    {
+        _zombies_killed.Add(zombie_position);
+    }
+
     public void EnemiesKilled()
     {
         Debug.Log("Send Enemies Data!");
+        if (_current_level > 0)
+        {
+            Send();
+        }
+    }
+
+    public void ZombiesKilled()
+    {
+        Debug.Log("Send Zombies Data!");
         if (_current_level > 0)
         {
             Send();
@@ -175,6 +191,8 @@ public class SendToGoogle : MonoBehaviour
     {
 
         string _enemies_killed_str = ListToString(_enemies_killed);
+
+        string _zombies_killed_str = ListToString(_zombies_killed);
 
         float _portalUsageRate;
 
@@ -210,11 +228,12 @@ public class SendToGoogle : MonoBehaviour
 
         StartCoroutine(Post(_playerID.ToString(), _die_of_enemy.ToString(), _die_of_no_bullet.ToString(), _enemies_killed_str, 
             _portalUsageRate.ToString(), portal_locations_str, completion_ratio_str, player_death_location_by_enemy_str, 
-            portal_locations_str_after, player_shoot_location));
+            portal_locations_str_after, player_shoot_location, _zombies_killed_str));
         //Reset the values
         // _enemies_killed.Clear();
         // _portalsUsedLocations.Clear();
         _enemies_killed = new List<Vector2>();
+        _zombies_killed = new List<Vector2>();
         _portalsUsedLocations = new List<Vector2>();
         _portalsLocationsAfter = new List<Vector2>();
         _playerLocation = new List<Vector2>();
@@ -222,7 +241,7 @@ public class SendToGoogle : MonoBehaviour
 
     private IEnumerator Post(string playerID, string _die_of_enemy, string _die_of_no_bullet, string _enemies_killed, 
         string _portalUsageRate, string _portal_locations, string _completion_ratio, string _player_death_location_by_enemy, 
-        string _portal_locations_after, string _player_shoot_location)
+        string _portal_locations_after, string _player_shoot_location, string _zombies_killed)
     {
         WWWForm form = new WWWForm();
         //https://docs.google.com/forms/u/1/d/e/1FAIpQLSfel1Kq9fm8JetHvPYqWWsYKrl3gxc5ViDl-x2FY894ZfNpKA/formResponse
@@ -241,6 +260,7 @@ public class SendToGoogle : MonoBehaviour
         form.AddField("entry.1002300073", _portal_locations_after); 
         form.AddField("entry.1766943039", _completion_ratio);
         form.AddField("entry.1283893895", _player_shoot_location);
+        form.AddField("entry.1889359762", _zombies_killed);
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {
