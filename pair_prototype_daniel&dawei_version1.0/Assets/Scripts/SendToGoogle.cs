@@ -25,6 +25,9 @@ public class SendToGoogle : MonoBehaviour
     private List<Vector2> _portalsUsedLocations = new List<Vector2>();
 
     private List<Vector2> _portalsLocationsAfter = new List<Vector2>();
+
+    private List<Vector2> _playerLocation = new List<Vector2>();
+
     private int _portalsUsed = 0;
     private int _totalPortals = 0;
     private float completion_ratio = 0;
@@ -69,6 +72,10 @@ public class SendToGoogle : MonoBehaviour
         _portalsUsedLocations.Add(portalPosition);
         _portalsLocationsAfter.Add(portalPositionAfter);
         PortalUsed();
+    }
+    public void TrackShooting(Vector2 playerPosition)
+    {
+        _playerLocation.Add(playerPosition);
     }
 
     private void LoadPlayerData()
@@ -173,6 +180,7 @@ public class SendToGoogle : MonoBehaviour
         }
         string portal_locations_str = ListToString(_portalsUsedLocations);
         string portal_locations_str_after = ListToString(_portalsLocationsAfter);
+        string player_shoot_location = ListToString(_playerLocation);
 
         if (_playersStarted[_current_level - 1] == 0)
         {
@@ -192,17 +200,20 @@ public class SendToGoogle : MonoBehaviour
         string player_death_location_by_enemy_str = player_death_location_by_enemy.ToString();
 
         StartCoroutine(Post(_playerID.ToString(), _die_of_enemy.ToString(), _die_of_no_bullet.ToString(), _enemies_killed_str, 
-            _portalUsageRate.ToString(), portal_locations_str, completion_ratio_str, player_death_location_by_enemy_str, portal_locations_str_after));
+            _portalUsageRate.ToString(), portal_locations_str, completion_ratio_str, player_death_location_by_enemy_str, 
+            portal_locations_str_after, player_shoot_location));
         //Reset the values
         // _enemies_killed.Clear();
         // _portalsUsedLocations.Clear();
         _enemies_killed = new List<Vector2>();
         _portalsUsedLocations = new List<Vector2>();
         _portalsLocationsAfter = new List<Vector2>();
+        _playerLocation = new List<Vector2>();
     }
 
     private IEnumerator Post(string playerID, string _die_of_enemy, string _die_of_no_bullet, string _enemies_killed, 
-        string _portalUsageRate, string _portal_locations, string _completion_ratio, string _player_death_location_by_enemy, string _portal_locations_after)
+        string _portalUsageRate, string _portal_locations, string _completion_ratio, string _player_death_location_by_enemy, 
+        string _portal_locations_after, string _player_shoot_location)
     {
         WWWForm form = new WWWForm();
         //https://docs.google.com/forms/u/1/d/e/1FAIpQLSfel1Kq9fm8JetHvPYqWWsYKrl3gxc5ViDl-x2FY894ZfNpKA/formResponse
@@ -220,6 +231,7 @@ public class SendToGoogle : MonoBehaviour
         form.AddField("entry.1802019497", _portal_locations);
         form.AddField("entry.1002300073", _portal_locations_after); 
         form.AddField("entry.1766943039", _completion_ratio);
+        form.AddField("entry.1283893895", _player_shoot_location);
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {

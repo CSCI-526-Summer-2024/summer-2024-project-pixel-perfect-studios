@@ -39,6 +39,8 @@ public class Gun : MonoBehaviour
     public Boolean fullTrajectory = false;
 
     private List<TrajectorySegment> trajectorySegments = new List<TrajectorySegment>();
+
+    private SendToGoogle googleForm;
     
     private void Awake()
     {
@@ -54,6 +56,7 @@ public class Gun : MonoBehaviour
         {
             lineRenderer = GetComponent<LineRenderer>();
         }
+        googleForm = GameObject.Find("GoogleFormManager").GetComponent<SendToGoogle>();
     }
     
     void Update()
@@ -81,6 +84,7 @@ public class Gun : MonoBehaviour
         {
             Shoot(direction);
             advancedBullet--;
+            bulletsLeft--;
         }
         
         if ((advancedBullet == 0) && (bullet == null))
@@ -99,6 +103,8 @@ public class Gun : MonoBehaviour
     {
         // Create a bullet instance at the shootPoint's position and rotation
         bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        googleForm.TrackShooting(shootPoint.position);
+        Debug.Log("Shooting Position:"+ shootPoint.position);
         
         // Calculate the direction to shoot the bullet
         //Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - shootPoint.position;
