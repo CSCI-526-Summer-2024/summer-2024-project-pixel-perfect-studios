@@ -6782,6 +6782,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 7348531378167082100, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
+      propertyPath: bulletsLeft
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 9049006767070890139, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
       propertyPath: m_Enabled
       value: 1
