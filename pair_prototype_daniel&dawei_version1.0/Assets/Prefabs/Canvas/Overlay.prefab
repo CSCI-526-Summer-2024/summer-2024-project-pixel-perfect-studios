@@ -1172,7 +1172,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You hit enemy/zombie!!!
+  m_text: 'You hit enemy!!!
 
 
 '
