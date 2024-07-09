@@ -41,6 +41,8 @@ public class Gun : MonoBehaviour
     private List<TrajectorySegment> trajectorySegments = new List<TrajectorySegment>();
 
     private SendToGoogle googleForm;
+
+    //public GameObject powerUpsDisplay;
     
     private void Awake()
     {

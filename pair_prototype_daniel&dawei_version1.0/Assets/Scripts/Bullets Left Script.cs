@@ -40,7 +40,6 @@ public class BulletManager : MonoBehaviour
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             OverlayController.instance.characterStatus = OverlayController.playerStatus.LOSE_BY_BULLET;
         }
-        
     }
 
     void UpdateBulletText()
