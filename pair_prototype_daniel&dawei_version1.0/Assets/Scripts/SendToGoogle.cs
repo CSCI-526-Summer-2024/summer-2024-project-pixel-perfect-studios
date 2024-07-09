@@ -106,7 +106,7 @@ public class SendToGoogle : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Invalid level number.");
+            //Debug.LogError("Invalid level number.");
         }
     }
 
@@ -128,14 +128,20 @@ public class SendToGoogle : MonoBehaviour
         _die_of_enemy++;
         player_death_location_by_enemy = playerPosition;
         Debug.Log("Send Enemy Death Data!");
-        Send();
+        if (_current_level > 0)
+        {
+            Send();
+        }
     }
 
     public void DeathBullet()
     {
         _die_of_no_bullet++;
         Debug.Log("Send Bullet Data!");
-        Send();
+        if (_current_level > 0)
+        {
+            Send();
+        }
     }
     
 
@@ -147,7 +153,10 @@ public class SendToGoogle : MonoBehaviour
     public void EnemiesKilled()
     {
         Debug.Log("Send Enemies Data!");
-        Send();
+        if (_current_level > 0)
+        {
+            Send();
+        }
     }
 
     string ListToString(List<Vector2> list)
