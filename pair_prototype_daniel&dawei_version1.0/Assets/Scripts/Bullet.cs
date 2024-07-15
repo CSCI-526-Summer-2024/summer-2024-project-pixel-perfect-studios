@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     private int hitCount = 0;
     private Gun gun;
 
-    public int ricochetInt = 10;
+    public int ricochetInt = 2;
     public int advancedBulletRichochet = 3;
     public GameObject character;
     public float delayBeforeDespawn = 15f;
@@ -32,11 +32,32 @@ public class Bullet : MonoBehaviour
         character = GameObject.Find("Character");
     }
 
+    void Update() {
+
+        if (Input.GetKey(KeyCode.Alpha1)) {
+            Debug.Log("1 key pressed");
+            SetRicochetCount(2);
+        }
+        if (Input.GetKey(KeyCode.Alpha2)) {
+            Debug.Log("2 Pressed");
+            SetRicochetCount(3);
+        }
+        if (Input.GetKey(KeyCode.Alpha3)) {
+            Debug.Log("3 Pressed");
+            SetRicochetCount(4);
+        }
+    }
+
     public void Shoot(Vector2 direction, Gun gun)
     {
         this.direction = direction.normalized;
         this.gun = gun;
         rb.velocity = this.direction * speed;
+    }
+
+    void SetRicochetCount(int count) {
+        ricochetInt = count;
+        Debug.Log("Ricochet Count Set To: " + ricochetInt);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
