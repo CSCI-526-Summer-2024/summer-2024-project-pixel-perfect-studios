@@ -8812,11 +8812,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1767087931663953251, guid: f903ead24d3224b988677dd130350b19, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 107.4
+      value: 99.2
       objectReference: {fileID: 0}
     - target: {fileID: 1767087931663953251, guid: f903ead24d3224b988677dd130350b19, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 96
+      value: 78
       objectReference: {fileID: 0}
     - target: {fileID: 1767087931663953251, guid: f903ead24d3224b988677dd130350b19, type: 3}
       propertyPath: m_LocalPosition.z
