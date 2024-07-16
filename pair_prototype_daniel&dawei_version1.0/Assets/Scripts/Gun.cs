@@ -65,17 +65,17 @@ public class Gun : MonoBehaviour
     {
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - armPosition.position; // NEW
         UpdateTrajectory(armPosition.position, direction); // NEW
-        if (Input.GetKey(KeyCode.T)) // Check if the "T" key is pressed. Use to
-        {
-            fullTrajectory = true;
-            advancedBullet = 1;
-        }
+        // if (Input.GetKey(KeyCode.T)) // Check if the "T" key is pressed. Use to
+        // {
+        //     fullTrajectory = true;
+        //     advancedBullet = 1;
+        // }
         
-        if (Input.GetKey(KeyCode.P)) // Check if the "T" key is pressed. Use to
-        {
-            fullTrajectory = false;
-            advancedBullet = 0;
-        }
+        // if (Input.GetKey(KeyCode.P)) // Check if the "T" key is pressed. Use to
+        // {
+        //     fullTrajectory = false;
+        //     advancedBullet = 0;
+        // }
         
         if (Input.GetMouseButtonDown(0) && (fullTrajectory == false) && (bulletsLeft > 0) && (bullet == null) && allowShooting) // Detect mouse click
         { 
@@ -86,7 +86,7 @@ public class Gun : MonoBehaviour
         {
             Shoot(direction);
             advancedBullet--;
-            bulletsLeft--;
+            // bulletsLeft--;
         }
         
         if ((advancedBullet == 0) && (bullet == null))
