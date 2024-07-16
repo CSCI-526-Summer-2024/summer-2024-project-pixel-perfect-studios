@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    public readonly int levelInTotal = 13;
+    public readonly int levelInTotal = 14;
     public string[] levels;
     public static int currentLevelIndex = 0;
     public GameObject nextLevelButton;
