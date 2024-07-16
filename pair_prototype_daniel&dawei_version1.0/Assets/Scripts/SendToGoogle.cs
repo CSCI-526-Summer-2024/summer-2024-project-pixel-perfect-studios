@@ -17,8 +17,8 @@ public class SendToGoogle : MonoBehaviour
     private int _die_of_no_bullet = 0;
 
 
-    private int[] _playersStarted = new int[6]; //hard-coded for 6 levels
-    private int[] _playersCompleted = new int[6];
+    private int[] _playersStarted = new int[7]; //hard-coded for 7 levels
+    private int[] _playersCompleted = new int[7];
 
     private List<Vector2> _enemies_killed = new List<Vector2>();
 
@@ -82,7 +82,7 @@ public class SendToGoogle : MonoBehaviour
 
     private void LoadPlayerData()
     {
-        for (int i = 1; i <= 6; i++)
+        for (int i = 1; i <= 7; i++)
         {
             _playersStarted[i - 1] = PlayerPrefs.GetInt($"Level_{i}_Started", 0);
             _playersCompleted[i - 1] = PlayerPrefs.GetInt($"Level_{i}_Completed", 0);
@@ -91,7 +91,7 @@ public class SendToGoogle : MonoBehaviour
 
     private void SavePlayerData()
     {
-        for (int i = 1; i <= 6; i++)
+        for (int i = 1; i <= 7; i++)
         {
             PlayerPrefs.SetInt($"Level_{i}_Started", _playersStarted[i - 1]);
             PlayerPrefs.SetInt($"Level_{i}_Completed", _playersCompleted[i - 1]);
@@ -101,7 +101,7 @@ public class SendToGoogle : MonoBehaviour
 
     public void PlayerStartedLevel(int level)
     {
-        if (level >= 1 && level <= 6)
+        if (level >= 1 && level <= 7)
         {
             _playersStarted[level - 1]++;
             SavePlayerData();
@@ -114,7 +114,7 @@ public class SendToGoogle : MonoBehaviour
 
     public void PlayerCompletedLevel(int level)
     {
-        if (level >= 1 && level <= 6)
+        if (level >= 1 && level <= 7)
         {
             _playersCompleted[level - 1]++;
             SavePlayerData();

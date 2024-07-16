@@ -70,4 +70,12 @@ public class Portal : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    public void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.name == "Character") {
+            Debug.Log("Hit a portal");
+            Destroy(gameObject);
+            PortalJump();
+        }
+    }
 }
