@@ -395,7 +395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7348531378167082100, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
       propertyPath: bulletsLeft
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -861,7 +861,7 @@ MonoBehaviour:
   HUDCanvas: {fileID: 1394087351}
   size: []
   offset: {x: 0, y: 0, z: 0}
-  player: {fileID: 1249533646}
+  player: {fileID: 546732986}
   leftRegionX: -11.73
   rightRegionX: 10.7
   leftRegionY: 100.3
@@ -1361,6 +1361,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &546732986 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6478664680324638058, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
+  m_PrefabInstance: {fileID: 82195794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &618905528
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,11 +3432,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c1868b96ce884a0294241414cd01f0f, type: 3}
---- !u!4 &1249533646 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6478664680324638058, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
-  m_PrefabInstance: {fileID: 82195794}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1255837608
 GameObject:
   m_ObjectHideFlags: 0
