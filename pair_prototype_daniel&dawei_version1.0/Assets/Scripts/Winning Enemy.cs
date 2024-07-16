@@ -10,11 +10,13 @@ public class WinningEnemy : MonoBehaviour
 
 //     public TextMeshProUGUI winText;
     private SendToGoogle googleForm;
-    public int _current_level;
+    private int _current_level;
 
     void Start()
     {
         googleForm = GameObject.Find("GoogleFormManager").GetComponent<SendToGoogle>();
+        _current_level = googleForm._current_level;
+        Debug.Log(_current_level);
         googleForm.PlayerStartedLevel(_current_level); //unsure where to put this
         Debug.Log("Player started the level");
 //         winText.text = "";
