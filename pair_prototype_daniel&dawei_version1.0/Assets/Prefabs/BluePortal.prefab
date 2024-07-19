@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
+  pointedAtPortal: {fileID: 0}
 --- !u!58 &-7878277097579456809
 CircleCollider2D:
   m_ObjectHideFlags: 0

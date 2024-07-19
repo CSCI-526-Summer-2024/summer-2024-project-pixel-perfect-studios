@@ -11,6 +11,7 @@ TagManager:
   - OrangePortal
   - GoldEnemy
   - Zombie
+  - TrajectoryLine
   layers:
   - Default
   - TransparentFX

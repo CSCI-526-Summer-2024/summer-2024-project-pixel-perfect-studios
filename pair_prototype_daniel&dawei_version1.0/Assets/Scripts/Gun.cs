@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
     public GameObject bullet = null;
 
     public LineRenderer lineRenderer; // NEW
-    public float timeStep = 0.1f; // NEW
+    public float timeStep = 0.1f; // NEW 
 
     private Color color1 = Color.red;
     private Color color2 = Color.yellow;
@@ -41,6 +41,11 @@ public class Gun : MonoBehaviour
     private List<TrajectorySegment> trajectorySegments = new List<TrajectorySegment>();
 
     private SendToGoogle googleForm;
+    
+    private Boolean portalFlag = false;
+
+    private GameObject portal;
+    private GameObject nearestPortal;
 
     //public GameObject powerUpsDisplay;
     
@@ -99,6 +104,16 @@ public class Gun : MonoBehaviour
         } else {
             lineRenderer.enabled = true;
         }
+
+        if (portalFlag == false) {
+            if (portal != null) {
+                Portal portalScript = portal.GetComponent<Portal>();
+                if (portalScript != null)
+                {
+                    portalScript.ResetColor(nearestPortal);
+                }
+            }
+        }
     }
 
     public void Shoot(Vector2 direction)
@@ -154,7 +169,20 @@ public class Gun : MonoBehaviour
 
             if (hit.collider != null)
             {
-                //Debug.Log(hit.collider.tag);
+                Debug.Log(hit.collider.tag);
+                if (hit.collider.CompareTag("BluePortal") || hit.collider.CompareTag("OrangePortal"))
+                {
+                    portalFlag = true;
+                    portal = hit.collider.gameObject;
+                    Portal portalScript = portal.GetComponent<Portal>();
+                    if (portalScript != null)
+                    {
+                        nearestPortal = portalScript.LocatePortal();
+                    }
+
+                } else {
+                    portalFlag = false;
+                }
                 distance = hit.distance;
                 int maxPoints = Mathf.CeilToInt(distance / 0.2f);
                 trajectorySegments.Add(new TrajectorySegment(currentPosition, direction, maxPoints));
