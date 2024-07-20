@@ -18,13 +18,15 @@ public class PowerUpsDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Gun.instance.fullTrajectory){
-            powerUpsDisplay.SetActive(true);
-            //powerUpsText = powerUpsDisplay.GetComponent<TextMeshProUGUI>();
-            powerUpsText.text = "Power-Ups: " + Gun.instance.advancedBullet;
-        }else{
-            powerUpsDisplay.SetActive(false);
-            powerUpsText.text = "";
-        }
+        // if(Gun.instance.fullTrajectory){
+        //     powerUpsDisplay.SetActive(true);
+        //     //powerUpsText = powerUpsDisplay.GetComponent<TextMeshProUGUI>();
+        //     powerUpsText.text = "Power-Ups: " + Gun.instance.advancedBullet;
+        // }else{
+        //     powerUpsDisplay.SetActive(false);
+        //     powerUpsText.text = "";
+        // }
+        powerUpsDisplay.SetActive(true);
+        powerUpsText.text = "Power-Ups: " + Gun.instance.advancedBullet;
     }
 }

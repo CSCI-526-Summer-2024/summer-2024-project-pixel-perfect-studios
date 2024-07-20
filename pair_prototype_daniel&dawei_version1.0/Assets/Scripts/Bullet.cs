@@ -80,7 +80,6 @@ public class Bullet : MonoBehaviour
             // Destroy the Bullet
             googleForm.AddZombiesKilled(collision.gameObject.name);
             Destroy(collision.gameObject);
-            gun.fullTrajectory = true;
             gun.advancedBullet += 5;
             StartCoroutine(DestroyBulletAfterDelay(0.02f));
             Debug.Log("Hit a zombie");
@@ -107,6 +106,7 @@ public class Bullet : MonoBehaviour
         else if (hitCount == advancedBulletRichochet && gun.fullTrajectory == true)
         {
             StartCoroutine(DestroyBulletAfterDelay(0.02f));
+            //gun.fullTrajectory = false;
         }
     }
     
