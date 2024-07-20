@@ -167,6 +167,16 @@ public class Gun : MonoBehaviour
             if (hit.collider != null)
             {
                 Debug.Log(hit.collider.tag);
+                distance = hit.distance;
+                int maxPoints = Mathf.CeilToInt(distance / 0.2f);
+                trajectorySegments.Add(new TrajectorySegment(currentPosition, direction, maxPoints));
+
+                currentPosition = hit.point + hit.normal * sphereRadius;
+                direction = Vector2.Reflect(direction, hit.normal);
+                if (hit.collider.tag == "GoldEnemy")
+                {
+                    break;
+                }
                 if (hit.collider.CompareTag("BluePortal") || hit.collider.CompareTag("OrangePortal"))
                 {
                     portalFlag = true;
@@ -176,16 +186,10 @@ public class Gun : MonoBehaviour
                     {
                         nearestPortal = portalScript.LocatePortal();
                     }
-
+                    break;
                 } else {
                     portalFlag = false;
                 }
-                distance = hit.distance;
-                int maxPoints = Mathf.CeilToInt(distance / 0.2f);
-                trajectorySegments.Add(new TrajectorySegment(currentPosition, direction, maxPoints));
-
-                currentPosition = hit.point + hit.normal * sphereRadius;
-                direction = Vector2.Reflect(direction, hit.normal);
             }
             else
             {
