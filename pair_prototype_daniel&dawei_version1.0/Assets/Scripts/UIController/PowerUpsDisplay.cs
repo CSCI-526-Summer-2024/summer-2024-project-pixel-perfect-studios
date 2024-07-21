@@ -14,8 +14,7 @@ public class PowerUpsDisplay : MonoBehaviour
     public Color newColor;
     [SerializeField]
     private GameObject bulletsDisplay;
-    [SerializeField]
-    private TextMeshProUGUI bulletsText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +34,11 @@ public class PowerUpsDisplay : MonoBehaviour
             if(Gun.instance.fullTrajectory){
                 bulletsDisplay.SetActive(false);
                 powerUpsText.color = newColor;
-                bulletsText.text = "";
+                //bulletsText.text = "";
             }else{
                 bulletsDisplay.SetActive(true);
                 powerUpsText.color = originalColor;
-                bulletsText.text = "Bullets: " + currentBullets;
+                //bulletsText.text = "Bullets: " + currentBullets;
             }
             
         }else{
