@@ -81,6 +81,7 @@ public class Gun : MonoBehaviour
             if (triggerCount % 2 == 1)
             {
                 fullTrajectory = true;
+                advancedBullet--;
             }
             else
             {
