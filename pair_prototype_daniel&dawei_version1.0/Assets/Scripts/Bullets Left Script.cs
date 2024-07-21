@@ -20,6 +20,7 @@ public class BulletManager : MonoBehaviour
             gunScript = gun.GetComponent<Gun>();
             if (gunScript != null) {
                 currentBullets = maxBullets;
+                //bulletText.text = "Bullets: " + currentBullets;
                 UpdateBulletText();
             } else {
                 Debug.LogError("Gun script not found on the Gun object!");

@@ -836,7 +836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12, y: -267}
+  m_AnchoredPosition: {x: -18, y: -267}
   m_SizeDelta: {x: 76.1197, y: 8.5293}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8385169665682334396
@@ -971,7 +971,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: -271}
+  m_AnchoredPosition: {x: -22, y: -271}
   m_SizeDelta: {x: 162.0346, y: 37.4155}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4599299674130279357
@@ -1523,6 +1523,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpsDisplay: {fileID: 6053583540057610352}
   powerUpsText: {fileID: 4368516813502188086}
+  newColor: {r: 0.9339623, g: 0.083704144, b: 0.13686961, a: 1}
+  bulletsDisplay: {fileID: 5195646782637949949}
+  bulletsText: {fileID: 3359166938366099098}
 --- !u!1 &8605166405816308816
 GameObject:
   m_ObjectHideFlags: 0

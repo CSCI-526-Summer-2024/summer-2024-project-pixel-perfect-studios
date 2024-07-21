@@ -88,6 +88,9 @@ public class Gun : MonoBehaviour
                 fullTrajectory = false;
             }
         }
+        if((bulletsLeft == 0) && (advancedBullet > 0)){
+            fullTrajectory = true;
+        }
         
         if (Input.GetMouseButtonDown(0) && (fullTrajectory == false) && (bulletsLeft > 0) && (bullet == null) && allowShooting) // Detect mouse click
         { 
