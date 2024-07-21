@@ -186,7 +186,7 @@ public class Gun : MonoBehaviour
                 {
                     break;
                 }
-                if (hit.collider.CompareTag("BluePortal") || hit.collider.CompareTag("OrangePortal"))
+                if ((hit.collider.CompareTag("BluePortal") || hit.collider.CompareTag("OrangePortal")) && bullet == null)
                 {
                     portalFlag = true;
                     portal = hit.collider.gameObject;
