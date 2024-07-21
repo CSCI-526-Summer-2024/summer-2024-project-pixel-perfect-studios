@@ -106,7 +106,6 @@ public class Bullet : MonoBehaviour
         else if (hitCount == advancedBulletRichochet && gun.fullTrajectory == true)
         {
             StartCoroutine(DestroyBulletAfterDelay(0.02f));
-            //gun.fullTrajectory = false;
         }
     }
     
