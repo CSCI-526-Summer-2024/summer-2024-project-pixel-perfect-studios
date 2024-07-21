@@ -543,6 +543,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffcda9f837ce24c70bfa22452a35c25f, type: 3}
+--- !u!1 &370682338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7134315075982385498, guid: 3259a3031e97142f2be1fff4cee85a60, type: 3}
+  m_PrefabInstance: {fileID: 604710361}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &374973188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,14 +1014,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42cabf4392e5490da93e4e975619453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HUDCanvas: {fileID: 0}
+  HUDCanvas: {fileID: 370682338}
   size: []
   offset: {x: 0, y: 0, z: 0}
   player: {fileID: 2042958883}
-  leftRegionX: 114
-  rightRegionX: 135
+  leftRegionX: 104
+  rightRegionX: 142.2
   leftRegionY: 72.5
-  rightRegionY: 91.5
+  rightRegionY: 97.8
   smoothSpeed: 50
   enableSwitch: 1
   moreFocus: 0

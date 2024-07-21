@@ -4296,10 +4296,10 @@ MonoBehaviour:
   size: []
   offset: {x: 0, y: 0, z: 0}
   player: {fileID: 1519778633}
-  leftRegionX: 46
-  rightRegionX: 64.5
-  leftRegionY: -9.27
-  rightRegionY: 5.49
+  leftRegionX: 35.8
+  rightRegionX: 73.8
+  leftRegionY: -12.64
+  rightRegionY: 10.34
   smoothSpeed: 50
   enableSwitch: 1
   moreFocus: 0
