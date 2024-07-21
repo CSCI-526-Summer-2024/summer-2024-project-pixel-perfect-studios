@@ -129,10 +129,10 @@ public class Portal : MonoBehaviour {
                     nearestPortal = portal;
                 }
             }
-            if (nearestPortal != null)
-            {
-                ApplyColorChange(nearestPortal);
-            }
+            // if (nearestPortal != null)
+            // {
+            //     ApplyColorChange(nearestPortal);
+            // }
         }
         else if (this.tag == "OrangePortal")
         {
@@ -149,10 +149,10 @@ public class Portal : MonoBehaviour {
                     nearestPortal = portal;
                 }
             }
-            if (nearestPortal != null)
-            {
-                ApplyColorChange(nearestPortal);
-            }
+            // if (nearestPortal != null)
+            // {
+            //     ApplyColorChange(nearestPortal);
+            // }
         }
         if (nearestPortal != null)
         {

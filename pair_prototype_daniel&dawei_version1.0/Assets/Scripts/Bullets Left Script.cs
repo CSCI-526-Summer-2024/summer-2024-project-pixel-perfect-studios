@@ -5,6 +5,7 @@ public class BulletManager : MonoBehaviour
 {
     public int maxBullets;
     private int currentBullets;
+    private int currentPowerUp;
     public TextMeshProUGUI bulletText;
     private Gun gunScript;
     private SendToGoogle googleForm;
@@ -30,8 +31,9 @@ public class BulletManager : MonoBehaviour
 
     void Update() {
         currentBullets = gunScript.bulletsLeft;
+        currentPowerUp = gunScript.advancedBullet;
         UpdateBulletText();
-        if (!_no_bullet_check && currentBullets == 0 && GameObject.Find("Bullet(Clone)") == null) {
+        if (!_no_bullet_check && currentBullets == 0 && currentPowerUp == 0 && GameObject.Find("Bullet(Clone)") == null) {
             // Call the function to restart the game
             // Show Game Over Screen
             _no_bullet_check = true;

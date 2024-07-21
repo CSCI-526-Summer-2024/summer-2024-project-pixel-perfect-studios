@@ -49,6 +49,8 @@ public class Gun : MonoBehaviour
     private GameObject portal;
     private GameObject nearestPortal;
 
+    private RotatingSquare findPortal = null;
+
     //public GameObject powerUpsDisplay;
     
     private void Awake()
@@ -66,6 +68,7 @@ public class Gun : MonoBehaviour
             lineRenderer = GetComponent<LineRenderer>();
         }
         googleForm = GameObject.Find("GoogleFormManager").GetComponent<SendToGoogle>();
+        findPortal = GameObject.Find("TestEdge").GetComponent<RotatingSquare>();
     }
     
     void Update()
@@ -107,15 +110,15 @@ public class Gun : MonoBehaviour
             lineRenderer.enabled = true;
         }
 
-        if (portalFlag == false) {
-            if (portal != null) {
-                Portal portalScript = portal.GetComponent<Portal>();
-                if (portalScript != null)
-                {
-                    portalScript.ResetColor(nearestPortal);
-                }
-            }
-        }
+        // if (portalFlag == false) {
+        //     if (portal != null) {
+        //         Portal portalScript = portal.GetComponent<Portal>();
+        //         if (portalScript != null)
+        //         {
+        //             portalScript.ResetColor(nearestPortal);
+        //         }
+        //     }
+        // }
     }
 
     public void Shoot(Vector2 direction)
@@ -194,7 +197,7 @@ public class Gun : MonoBehaviour
                     break;
                 } else {
                     portalFlag = false;
-                }
+                }     
             }
             else
             {
@@ -202,7 +205,17 @@ public class Gun : MonoBehaviour
                 trajectorySegments.Add(new TrajectorySegment(currentPosition, direction, maxPoints));
                 break;
             }
+
         }
+        if (portalFlag == true)
+        {
+            findPortal.FindPortal(nearestPortal.transform.position);
+        }
+        else
+        {
+            findPortal.FindPortal(new Vector2(-1000, -1000));
+        }
+
         lineRenderer.positionCount = 0;
         foreach (var segment in trajectorySegments)
         {
