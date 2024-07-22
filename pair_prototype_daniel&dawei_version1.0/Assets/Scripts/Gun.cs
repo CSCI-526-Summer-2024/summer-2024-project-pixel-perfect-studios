@@ -89,7 +89,7 @@ public class Gun : MonoBehaviour
                 //advancedBullet--;
             }
         }
-        if((bulletsLeft == 0) && (advancedBullet > 0)){
+        if((bulletsLeft == 0) && (advancedBullet > 0) && (bullet == null)){
             fullTrajectory = true;
         }
         
