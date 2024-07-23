@@ -11,9 +11,12 @@ public class BulletManager : MonoBehaviour
     private SendToGoogle googleForm;
 
     private bool _no_bullet_check=false;
+    private Color redColor = new Color(1f, 0f, 0f, 1f);
+    private Color originalColor;
 
     void Start()
     {
+        originalColor = bulletText.color;
         googleForm = GameObject.Find("GoogleFormManager").GetComponent<SendToGoogle>();
         GameObject gun = GameObject.Find("Character/Arm/Gun");
         if (gun != null) {
@@ -49,6 +52,11 @@ public class BulletManager : MonoBehaviour
     {
         if (bulletText != null) {
             bulletText.text = "Bullets: " + currentBullets;
+            if(currentBullets <= 2){
+                bulletText.color = redColor;
+            }else{
+                bulletText.color = originalColor;
+            }
         } else {
             Debug.LogError("Bullet TextMeshPro component not assigned!");
         }
