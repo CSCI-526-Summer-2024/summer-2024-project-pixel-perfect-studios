@@ -56,5 +56,9 @@ public class PowerUpsDisplay : MonoBehaviour
         }
         //powerUpsDisplay.SetActive(true);
         //powerUpsText.text = "Power-Ups: " + Gun.instance.advancedBullet;
+        if(Gun.instance.advancedBullet == 0 && Gun.instance.bulletsLeft == 0){
+            bulletsDisplay.SetActive(false);
+            powerUpsDisplay.SetActive(false);
+        }
     }
 }
