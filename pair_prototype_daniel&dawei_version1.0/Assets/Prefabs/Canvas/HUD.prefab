@@ -1559,8 +1559,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpsDisplay: {fileID: 6053583540057610352}
   powerUpsText: {fileID: 4368516813502188086}
-  newColor: {r: 0.9339623, g: 0.083704144, b: 0.13686961, a: 1}
+  newColor: {r: 0.9716981, g: 0.8485407, b: 0.09625311, a: 1}
   bulletsDisplay: {fileID: 1589529708228147298}
+  tutorial: 0
+  tutorialCanvas: {fileID: 0}
 --- !u!1 &8605166405816308816
 GameObject:
   m_ObjectHideFlags: 0
